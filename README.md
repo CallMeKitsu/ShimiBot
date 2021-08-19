@@ -21,11 +21,14 @@ A la sortie de la beta 1.0, les fonctionalités suivantes seront disponibles :
 
 # Changelog
 Alpha 0.4.0 = Handling + ajouts multiples
+
 Alpha 0.4.1 = Catégories de commandes
+
 Alpha 0.4.2 = Filtre par stabilité
 
 # Suggestions
 Pour proposer des suggestions et améliorations, envoyez `? <suggestion complète>` en dm au bot,
+
 son tag est actuellement : Shimi#5590
 
 # Crédits

@@ -7,6 +7,7 @@ module.exports.run = async (client, message, args) => {
     .addField('version :', client.config.version)
     .addField('invite :', "https://bit.ly/DiscordShimiInvite")
     .addField('site :', "https://bit.ly/CallMeKitsuShimi")
+    .addField('GitHub :', "https://bit.ly/DiscordShimiGitHub")
     .addField('connecté sur :', `${client.guilds.cache.size} serveurs`, true)
     .addField('avec le client :', `${client.user.tag}`, true)
     .addField('pour un total de :', `${client.users.cache.size} utilisateurs`)
