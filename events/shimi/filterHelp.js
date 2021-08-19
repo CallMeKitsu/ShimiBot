@@ -13,6 +13,9 @@ module.exports = (client, message) => {
     let StableMap = client.commands.filter(stb => stb.config.stable === VarStable).map(cmd => cmd.config.name).join(', ')
     let StableArray = client.commands.filter(stb => stb.config.stable === VarStable).map(cmd => cmd.config.name)
 
+    if(!StableMap) return message.channel.send("aucune commande avec cette stabilité.")
+    if(!StableArray) return message.channel.send("aucune commande avec cette stabilité.")
+
     let embed = new Discord.MessageEmbed()
     .setTitle("HELP :")
     .setURL("https://callmekitsu.jimdofree.com/projets/shimi/")

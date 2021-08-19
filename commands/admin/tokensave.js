@@ -4,7 +4,9 @@ module.exports.run = async (client, message, args) => {
   // >tokensave TOKEN 4   
 
     let newToken = args[1]
+    if(!newToken) return message.channel.send("merci d'envoyer un token")
     let x = args[2]
+    if(!x) return message.channel.send('merci de saisir un nombre objet')
     let newTokenName = args.slice(3).join(" ")
     if(!newTokenName) newTokenName === "null"
 
@@ -35,8 +37,10 @@ module.exports.run = async (client, message, args) => {
         JSONtokenLIST['tokens'][x].name = newTokenName
 
         fs.writeFile("./database/json/tokenLIST.json", JSON.stringify(JSONtokenLIST, null, 2), err => {
-          if (err) console.log("Error writing file:", err);
-        });
+          if (err) { 
+            console.log("Error writing file:", err);
+            message.channel.send("erreur lors de l'écriture : erreur dans les logs.")
+        }});
       });
 
       message.channel.send(`token sauvegardé en tant que : ${newTokenName} à l'emplacement ${x}`)
@@ -53,6 +57,6 @@ module.exports.config = {
     name: "tokensave",
     category: "admin",
     usage: "{token} {nombre} {nom}",
-    stable: "🟩 unhandled",
+    stable: "✅ stable",
     description: "sauvegarde le token sous un nom",
 } 

@@ -3,29 +3,29 @@ module.exports.run = async (client, message, args) => {
 
     let reportChan = client.channels.cache.get(client.config.reportChan)
     let link = "https://github.com/CallMeKitsu/ShimiBot/issues/new"
-    let label = "erreur"
+    let label = "question"
     let admin = client.users.cache.get(client.config.admin)
 
     let embed = new Discord.MessageEmbed()
     .setColor(client.config.EmColor)
-    .setTitle("REPORT :")
+    .setTitle("QUESTION :")
     .setURL(link)
-    .setDescription("vous avez trouvé une erreur ?")
-    .addField("faites-en un rapport ici :", link)
+    .setDescription("vous avez une question ?")
+    .addField("posez-la nous ici :", link)
     .addField("merci d'utiliser :", `le label "${label}" disponible à droite !`)
     message.channel.send(embed)
 
     var ping = await reportChan.send(admin.toString())
     ping.delete()
-    reportChan.send('new report')
+    reportChan.send("new question")
 
 }
 
 module.exports.config = {
-    name: "report",
+    name: "question",
     category: "autres",
     usage: "",
     stable: "✅ stable",
-    description: "envoie un rapport de bug à l'administrateur",
+    description: "posez-nous vos questions !",
     cooldown: 60
 }
