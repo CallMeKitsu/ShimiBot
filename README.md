@@ -5,7 +5,7 @@ Il a pour but de réunir un maximum de fonctionnalités en un seul bot, complèt
 Actuellement en développement, en version Alpha 0.4.2
 
 # Invite
-> htpps://bit.ly/DiscordShimiInvite
+> https://bit.ly/DiscordShimiInvite
 
 # Commandes
 Nous prévoyons bien plus de 100 commandes pour la version finale,
