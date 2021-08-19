@@ -1,0 +1,23 @@
+{
+  "prefix": ">",
+  "devBy": "CallMeKitsu.#0284",
+  "admin": "398442888742305802",
+  "version": "Alpha 0.4",
+  "EmColor": "#E8980E",
+  "EmColorNeutral": "#36393F",
+  "EmColorGreen" : "#1aff00",
+  "EmColorRed": "#ff0000",
+  "stalkChan": "876077699624497202",
+  "invChan": "876501401226870794",
+  "reportChan": "876095178853740544",
+  "stalkVar": "off",
+  "FunctionsPath": "./functions.js",
+  "clientRoleName": "Shimi",
+  "Stable1": "✅ stable",
+  "Stable2": "🟩 unhandled",
+  "Stable3": "❌ instable",
+  "categoriesList" : ["admin", "autres", "jeux", "moderation", "social"],
+  "CatEmoji": ["👨‍💻", "🦊", "🎲", "👮‍♂️", "❤️"],
+  "stabilityList" : ["stable", "unhandled", "instable"],
+  "DBCONNECTION": "mongodb://localhost:27017/test"
+}
