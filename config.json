@@ -16,8 +16,8 @@
   "Stable1": "✅ stable",
   "Stable2": "🟩 unhandled",
   "Stable3": "❌ instable",
-  "categoriesList" : ["admin", "autres", "jeux", "moderation", "social"],
-  "CatEmoji": ["👨‍💻", "🦊", "🎲", "👮‍♂️", "❤️"],
+  "categoriesList" : ["admin", "animes", "autres", "jeux", "moderation", "social"],
+  "CatEmoji": ["👨‍💻", "⛩️", "🦊", "🎲", "👮‍♂️", "❤️"],
   "stabilityList" : ["stable", "unhandled", "instable"],
   "DBCONNECTION": "mongodb://localhost:27017/test"
 }

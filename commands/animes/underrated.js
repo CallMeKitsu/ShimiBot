@@ -59,7 +59,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.config = {
     name: "underrated",
-    category: "jeux",
+    category: "animes",
     usage: "[ waifu / husbando ]",
     stable: "✅ stable",
     description: "vous présente votre nouvelle / nouveau waifu / hubsando sous-coté(é) !",

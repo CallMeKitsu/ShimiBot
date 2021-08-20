@@ -43,7 +43,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.config = {
     name: "match",
-    category: "social",
+    category: "animes",
     usage: "@girl @boy",
     stable: "✅ stable",
     description: "envoie aux utilisateurs mentionnés des Pps liées",

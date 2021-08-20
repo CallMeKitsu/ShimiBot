@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.config = {
     name: "pp",
-    category: 'social',
+    category: 'moderation',
     usage: "<@user>",
     stable: "✅ stable",
     description: "envoie la pp de l'utilisateur mentionné / vous",
