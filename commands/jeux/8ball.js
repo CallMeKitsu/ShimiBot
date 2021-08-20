@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
         "oui, sans aucun doute.",
         "non, impossible.",
         "peut etre.. tente ta chance !",
-        "non, mais te suicide pas non plus 🥺",
+        "non mais te suicide pas non plus 🥺",
         "jamais.",
         "bah ouii !",
         "oui, bah écoute, peut etre.",
