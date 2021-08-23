@@ -11,10 +11,13 @@ module.exports.run = async (client, message, args) => {
 
     let NukedChannel = client.channels.cache.get(args[1]) || message.mentions.channels.first()
 
+    if(!NukedChannel) {
+        if(args[1] === "here") NukedChannel = message.channel
+        else return message.channel.send("merci d'utiliser des arguments corrects de la commande.")
+    } 
+
     if (message.member.hasPermission('ADMINISTRATOR')) {
 
-    if(!NukedChannel) NukedChannel = message.channel
-    
         NukeChannel(NukedChannel)
         
     } else return message.channel.send('cette commande requiert les permissions Administrateur du serveur.')
@@ -23,8 +26,8 @@ module.exports.run = async (client, message, args) => {
 module.exports.config = {
     name: "nuke",
     category: "moderation",
-    usage: "<channel>",
-    stable: "❌ instable",
+    usage: "[ {channel} / here ]",
+    stable: "🟩 unhandled",
     description: "supprime tous les messages d'un salon",
     cooldown: 10
 }
