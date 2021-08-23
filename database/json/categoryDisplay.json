@@ -1,0 +1,8 @@
+{
+    "admin" : "false",
+    "animes" : "true",
+    "autres" : "true",
+    "jeux" : "true",
+    "moderation" : "true",
+    "social" : "true"
+}

@@ -18,11 +18,15 @@ module.exports.run = async (client, message, args) => {
         .setFooter(`dev par ${client.config.devBy}`)
         let x = 0
         for(const category of categoryList) {  
+
+            if(client.categoryDisplay[category] === "true") {
+
             embed.addField(
                 `\\${client.config.CatEmoji[x]} ${category} :`,
                 `${client.commands.filter(cat => cat.config.category === category.toLowerCase()).map(cmd => cmd.config.name).join(', ')}`
             )
-            x = x + 1
+            
+            } x = x + 1
         }
 
         message.channel.send(embed)
