@@ -16,6 +16,12 @@ module.exports.run = async (client, message, args) => {
         else return message.channel.send("merci d'utiliser des arguments corrects de la commande.")
     } 
 
+    let THATmemberInTHATchannelsGUILD = NukedChannel.guild.member(message.author)
+
+    if(!NukedChannel.permissionsFor(THATmemberInTHATchannelsGUILD).has('MANAGE_CHANNELS')) {
+        return message.channel.send('vous devez avoir la permission de gérer ce salon')
+    }
+
     if (message.member.hasPermission('ADMINISTRATOR')) {
 
         NukeChannel(NukedChannel)

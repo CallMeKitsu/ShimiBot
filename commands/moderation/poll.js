@@ -6,6 +6,12 @@ module.exports.run = async (client, message, args) => {
     let PollChannel = client.channels.cache.get(args[1]) || message.mentions.channels.first()
     if(!PollChannel) return message.channel.send("merci de préciser en premier argument le salon du sondage")
 
+    let THATmemberInTHATchannelsGUILD = PollChannel.guild.member(message.author)
+
+    if(!PollChannel.permissionsFor(THATmemberInTHATchannelsGUILD).has('SEND_MESSAGES')) {
+        return message.channel.send("vous devez avoir la permission d'envoyer des messages dans ce salon")
+    }
+
     let PollArgs = message.content.trim().split(" .")
 
     let Obj1 = PollArgs[1]

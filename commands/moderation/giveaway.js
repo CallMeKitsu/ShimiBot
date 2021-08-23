@@ -60,6 +60,12 @@ module.exports.run = async (client, message, args) => {
 
     let GiveawayChannel = message.mentions.channels.first() || client.channels.cache.get(channelID)
     if(!GiveawayChannel) return message.channel.send(`vous devez saisir un salon correct.`)
+
+    let THATmemberInTHATchannelsGUILD = GiveawayChannel.guild.member(message.author)
+
+    if(!GiveawayChannel.permissionsFor(THATmemberInTHATchannelsGUILD).has('MANAGE_CHANNELS')) {
+        return message.channel.send('vous devez avoir la permission de gérer ce salon')
+    }
         
     let embedSent = await GiveawayChannel.send(embed)
     
