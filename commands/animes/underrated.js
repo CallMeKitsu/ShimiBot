@@ -3,7 +3,7 @@ module.exports.run = async (client, message, args) => {
 
     let type = args[1]
 
-    if(!type) return message.channel.send('choisissez : `>underrated waifu` ou `>underrated husbando` ?')
+    if(!type) return message.channel.send(`choisissez : \`${client.config.prefix}underrated waifu\` ou \`${client.config.prefix}underrated husbando\` ?`)
     
     const fs = require('fs');
     
