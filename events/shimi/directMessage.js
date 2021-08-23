@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 module.exports = (client, message) => {
 
-    if(message.content.startsWith("?")) {
+    if(message.content.startsWith("?") && !message.author.bot) {
 
         let QuestionArgs = message.content.trim().split("?");
 

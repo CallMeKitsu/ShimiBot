@@ -26,9 +26,11 @@ module.exports.run = async (client, message, args) => {
 
     let userGirl = GetUserByMention(args[1]) // définir Girl
     if(!userGirl) return message.channel.send("mentions invalides.") // si pas de mentions correctes
+    if(userGirl.bot) return message.channel.send("impossible d'utiliser cette commande sur un bot")
 
     let userBoy = GetUserByMention(args[2]) // définir Boy
     if(!userBoy) return message.channel.send("mentions invalides.") // si pas de mentions correctes
+    if(userBoy.bot) return message.channel.send("impossible d'utiliser cette commande sur un bot")
 
     userGirl.send(imageGirl)
     setTimeout(() => { userGirl.send(`voilà ta pp avec ${userBoy.username} ! ❤️`) }, 1000)
@@ -45,7 +47,7 @@ module.exports.config = {
     name: "match",
     category: "animes",
     usage: "@girl @boy",
-    stable: "🟩 unhandled",
+    stable: "✅ stable",
     description: "envoie aux utilisateurs mentionnés des Pps liées",
     cooldown: 10
 } 
