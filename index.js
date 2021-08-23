@@ -6,7 +6,7 @@ client.tsu = require('./functions.js')
 client.config = require("./config.json")
 client.renawLIST = require("./database/json/renawLIST.json")
 client.tokenLIST = require("./database/json/tokenLIST.json")
-client.letterLIST = require("./database/json/penduLIST.json")
+client.gameLIST = require("./database/json/gameLIST.json")
 client.underLIST = require('./database/json/underLIST.json')
 client.categoryDisplay = require('./database/json/categoryDisplay.json')
 
