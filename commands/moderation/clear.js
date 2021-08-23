@@ -2,12 +2,13 @@ const Discord = require('discord.js')
 module.exports.run = async (client, message, args) => {
 
         if (message.member.hasPermission('MANAGE_MESSAGES')) {
-            let args = message.content.trim().split(/ +/g);
-            if (args[1]) {
-                if (!isNaN(args[1]) && args[1] >= 1 && args[1] <= 99) {
-                    message.channel.bulkDelete(args[1])
-                    message.channel.send(`Vous avez supprimé ${args[1]} message(s)`)
-                    message.channel.bulkDelete(1)
+            
+            let DeletedNumber = Math.floor(args[1])
+
+            if (DeletedNumber) {
+                if (!isNaN(DeletedNumber) && DeletedNumber >= 1 && DeletedNumber <= 99) {
+                    message.channel.bulkDelete(DeletedNumber)
+                    message.channel.send(`Vous avez supprimé ${DeletedNumber} message(s)`)
                 }
                 else {
                     message.channel.send(`Vous devez indiquer une valeur entre 1 et 99 !`)

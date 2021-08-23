@@ -45,7 +45,7 @@ module.exports.config = {
     name: "match",
     category: "animes",
     usage: "@girl @boy",
-    stable: "✅ stable",
+    stable: "🟩 unhandled",
     description: "envoie aux utilisateurs mentionnés des Pps liées",
     cooldown: 10
 } 

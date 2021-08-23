@@ -16,8 +16,8 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.config = {
     name: "amp",
-    category: "moderation",
+    category: "admin",
     usage: "@user {message}",
-    stable: "✅ stable",
+    stable: "🟩 unhandled",
     description: "envoie un mp anonymement à l'utilisateur mentionné",
 }

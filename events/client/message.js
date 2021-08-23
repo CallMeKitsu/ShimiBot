@@ -30,7 +30,7 @@ module.exports = (client, message) => {
 
         const NowTime = Date.now()
         const tStamps = client.cooldowns.get(command.config.name)
-        const cdAmount = (command.config.cooldown || 0.5) * 1000
+        const cdAmount = (command.config.cooldown || 3) * 1000
 
         
 

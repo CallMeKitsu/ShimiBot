@@ -27,5 +27,5 @@ module.exports.config = {
     usage: "",
     stable: "✅ stable",
     description: "envoie un rapport de bug à l'administrateur",
-    cooldown: 60
+    cooldown: 3600
 }

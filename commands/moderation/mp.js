@@ -18,6 +18,6 @@ module.exports.config = {
     name: "mp",
     category: "moderation",
     usage: "@user {message}",
-    stable: "✅ stable",
+    stable: "🟩 unhandled",
     description: "envoie un mp à l'utilisateur mentionné",
 }

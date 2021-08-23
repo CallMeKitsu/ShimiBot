@@ -27,5 +27,5 @@ module.exports.config = {
     usage: "",
     stable: "✅ stable",
     description: "partagez nous vos idées !",
-    cooldown: 60
+    cooldown: 3600
 }

@@ -14,9 +14,9 @@ module.exports.run = async (client, message, args) => {
     if(command.config.category !== category) {
         return message.channel.send(`la commande "${commandName}" dans "${category}" n'existe pas.`);
       }
-    delete require.cache[require.resolve(`./commands\\${category}\\${commandName}.js`)];
+    delete require.cache[require.resolve(`../commands/${category}/${commandName}.js`)];
     client.commands.delete(commandName);
-    const props = require(`./commands\\${category}\\${commandName}.js`);
+    const props = require(`../commands/${category}/${commandName}.js`);
     client.commands.set(commandName, props);
         message.channel.send(`La commande "${commandName}" a bien été reload.`);
 

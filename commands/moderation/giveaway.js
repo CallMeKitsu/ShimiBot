@@ -31,13 +31,18 @@ module.exports.run = async (client, message, args) => {
     let days = args[2].split("j")[0].trim();
     let hours = args[3].split("h")[0].trim();
     let minutes = args[4].split("min")[0].trim();
+
+    if(days < 0) return message.channel.send("le nombre de jours ne peut être négatif")
+    if(hours < 0) return message.channel.send("le nombre d'heures ne peut être négatif")
+    if(minutes <= 0) return message.channel.send("le nombre de minutes ne peut être négatif ni nul")
+
     let MStime = GetMsbyForm(days, hours, minutes)
+
+    if(MStime < 0) return message.channel.send("le temps ne peut être négatif")
+
     let item = NewArgs[1]
     let FormatedTime = `${days} jours, ${hours} heures et ${minutes} minutes !`
     let GiveawayConditions = NewArgs[2]
-
-    // handling
-
 
     if(Number.isNaN(MStime)) return message.channel.send(`vous devez saisir des nombres valides comme arguments de temps.`)
     if(!item) item = "item non défini."
@@ -67,7 +72,7 @@ module.exports.run = async (client, message, args) => {
         let PeopleReactions = await embedSent.reactions.cache.get("🦊").users.fetch()
         let WinList = PeopleReactions.array().filter(u => u.id !== client.user.id)
 
-        if(WinList.length <= 0) return GiveawayChannel.send("le tirage ne peut être effectué qu'à partir de 2 participants !")
+        if(WinList.length <= 2) return GiveawayChannel.send("le tirage ne peut être effectué qu'à partir de 2 participants !")
         let winKey = Math.floor(Math.random() * WinList.length)
         let winner = WinList[winKey]
 
@@ -91,8 +96,8 @@ module.exports.run = async (client, message, args) => {
 module.exports.config = {
     name: "giveaway",
     category: "moderation",
-    usage: "{channel} Xj Xh Xmin <\"item à gagner\"conditions>",
-    stable: "✅ stable",
+    usage: "{channel} Xj Xh Xmin <.item à gagner.conditions>",
+    stable: "🟩 unhandled",
     description: "commence un giveaway et mentionne son gagnant dans le channel précisé après le temps imparti",
     cooldown: 5
 }

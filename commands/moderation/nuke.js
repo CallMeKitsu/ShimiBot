@@ -24,7 +24,7 @@ module.exports.config = {
     name: "nuke",
     category: "moderation",
     usage: "<channel>",
-    stable: "✅ stable",
+    stable: "❌ instable",
     description: "supprime tous les messages d'un salon",
     cooldown: 10
 }
