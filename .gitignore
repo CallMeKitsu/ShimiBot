@@ -5,3 +5,4 @@ SoGitPush.bat
 start.bat
 database/json/tokenLIST.json
 package-lock.json
+/commands/misc/*

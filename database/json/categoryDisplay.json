@@ -3,6 +3,7 @@
     "animes" : "true",
     "autres" : "true",
     "jeux" : "true",
+    "misc" : "false",
     "moderation" : "true",
     "social" : "true"
 }
