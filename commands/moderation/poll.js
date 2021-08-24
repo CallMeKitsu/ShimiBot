@@ -12,6 +12,10 @@ module.exports.run = async (client, message, args) => {
         return message.channel.send("vous devez avoir la permission d'envoyer des messages dans ce salon")
     }
 
+    if(!PollChannel.permissionsFor(PollChannel.guild.me).has('SEND_MESSAGES')) {
+        return message.channel.send("Shimi doit avoir la permission d'envoyer des messages dans ce salon")
+    }
+
     let PollArgs = message.content.trim().split(" .")
 
     let Obj1 = PollArgs[1]
@@ -47,6 +51,6 @@ module.exports.config = {
     name: "poll",
     category: "moderation",
     usage: '{channel} .{objet1} .{objet2} .<objet3> .<objet4> .<objet5>',
-    stable: "🟩 unhandled",
+    stable: "✅ stable",
     description: "crée un sondage rapide avec les objets en choix",
 }

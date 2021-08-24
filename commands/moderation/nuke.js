@@ -22,6 +22,14 @@ module.exports.run = async (client, message, args) => {
         return message.channel.send('vous devez avoir la permission de gérer ce salon')
     }
 
+    if(!NukedChannel.permissionsFor(NukedChannel.guild.me).has('MANAGE_CHANNELS')) {
+        return message.channel.send("Shimi doit avoir la permission de gérer ce salon")
+    }
+
+    if(!NukedChannel.permissionsFor(NukedChannel.guild.me).has('SEND_MESSAGES')) {
+        return message.channel.send("Shimi doit avoir la permission d'envoyer des messages dans ce salon")
+    }
+
     if (message.member.hasPermission('ADMINISTRATOR')) {
 
         NukeChannel(NukedChannel)

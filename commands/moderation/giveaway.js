@@ -66,6 +66,10 @@ module.exports.run = async (client, message, args) => {
     if(!GiveawayChannel.permissionsFor(THATmemberInTHATchannelsGUILD).has('MANAGE_CHANNELS')) {
         return message.channel.send('vous devez avoir la permission de gérer ce salon')
     }
+
+    if(!GiveawayChannel.permissionsFor(GiveawayChannel.guild.me).has('SEND_MESSAGES')) {
+        return message.channel.send("Shimi doit avoir la permission d'envoyer des messages dans ce salon")
+    }
         
     let embedSent = await GiveawayChannel.send(embed)
     
