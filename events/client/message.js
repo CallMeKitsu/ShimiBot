@@ -1,4 +1,3 @@
-const { Collection } = require("discord.js");
 const Discord = require("discord.js")
 const chalk = require("chalk")
 module.exports = (client, message) => {
@@ -25,7 +24,7 @@ module.exports = (client, message) => {
     
 
         if(!client.cooldowns.has(command.config.name)) {
-            client.cooldowns.set(command.config.name, new Collection())
+            client.cooldowns.set(command.config.name, new Discord.Collection())
         }
 
         const NowTime = Date.now()
@@ -48,7 +47,7 @@ module.exports = (client, message) => {
 
         command.run(client, message, args)
 
-    } // prefix okei 
+    } // prefix okei
 
     if(client.config.stalkVar === "on") { // si StalkVar = on
 
