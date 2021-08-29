@@ -107,7 +107,7 @@ module.exports.config = {
     name: "giveaway",
     category: "moderation",
     usage: "{channel} Xj Xh Xmin <.item à gagner.conditions>",
-    stable: "🟩 unhandled",
+    stable: "✅ stable",
     description: "commence un giveaway et mentionne son gagnant dans le channel précisé après le temps imparti",
     cooldown: 5
 }

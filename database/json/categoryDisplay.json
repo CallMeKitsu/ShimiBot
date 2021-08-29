@@ -5,6 +5,6 @@
     "jeux" : "true",
     "misc" : "false",
     "moderation" : "true",
-    "musique" : "false",
+    "musique" : "true",
     "social" : "true"
 }
