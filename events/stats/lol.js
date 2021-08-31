@@ -16,7 +16,7 @@ const lvl = await fetch(RequestURL)
     .then(res => res.json())
     .then(json => json.summonerLevel)
 
-const pseudo =await fetch(RequestURL)
+const pseudo = await fetch(RequestURL)
 
     .then(res => res.json())
     .then(json => json.name)
@@ -44,17 +44,18 @@ let rank = await fetch(SecondRequestURL)
 
     .then(res => res.json())
     .then(json => {
-        if(!json[0]['rank']) return
-        json[0]['rank']
+        if(json[0] === undefined) return
+        else return json[0]['rank']
     })
 
 let tier = await fetch(SecondRequestURL)
 
     .then(res => res.json())
     .then(json => {
-        if(!json[0]['tier']) return
-        json[0]['tier']
+        if(json[0] === undefined) return
+        else return json[0]['tier']
     })
+
 
 let ThirdRequestURL = `https://euw1.api.riotgames.com/lol/match/v4/matchlists/by-account/${EncryptedAccountID}?api_key=${API_KEY}`
 
