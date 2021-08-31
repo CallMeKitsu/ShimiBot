@@ -10,7 +10,7 @@ client.gameLIST = require("./database/json/gameLIST.json")
 client.underLIST = require('./database/json/underLIST.json')
 client.categoryDisplay = require('./database/json/categoryDisplay.json')
 client.suggestLIST = require('./database/json/suggestLIST.json')
-client.apiKEYS = require('./database/json/apiKEYS.json')
+client.apiLIST = require('./database/json/apiLIST.json')
 client.meteoLIST = require('./database/json/meteoLIST.json')
 
 client.login(client.tokenLIST.default)

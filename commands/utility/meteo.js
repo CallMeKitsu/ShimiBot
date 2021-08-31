@@ -2,7 +2,9 @@ const Discord = require('discord.js')
 const fetch = require('node-fetch')
 module.exports.run = async (client, message, args) => {
 
-    const API_KEY = client.apiKEYS.meteo
+    const API_KEY = client.apiLIST.keys.meteo
+
+    let limited = client.apiLIST.limits.meteo
 
     let VILLE_REQUEST = args.slice(1).join(' ')
     if(!VILLE_REQUEST) return message.channel.send('merci de saisir un nom de ville')
@@ -17,7 +19,7 @@ module.exports.run = async (client, message, args) => {
             else return json.cities[0]['insee']
         })
 
-
+    if(limited === "true") return message.channel.send("la clé d'API météo de Shimi ne lui permet que 500 requêtes par jour, désolé !")
     if(insee === undefined) return message.channel.send(`la ville "${VILLE_REQUEST}" n'existe pas ou n'a pas été trouvée`)
 
     let SecondRequestURL = `https://api.meteo-concept.com/api/forecast/daily?token=${API_KEY}&insee=${insee}`
@@ -100,9 +102,8 @@ module.exports.run = async (client, message, args) => {
 
     .setColor(client.config.EmColor)
     .setThumbnail(client.user.avatarURL())
-    .addField('Nom de la Ville :', name)
+    .addField('Nom de la Ville :', name, true)
     .addField('Code Postal :', cp, true)
-    .addField('Code Insee :', insee, true)
     .addField('Météo :', "\\" + tempsVar)
     .addField('Probabilité de pluie :', `${probarain}% de chances`, true)
     .addField('Température :', `entre ${tempMIN} et ${tempMAX}°C`, true)
