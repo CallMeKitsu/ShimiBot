@@ -43,19 +43,20 @@ let SecondRequestURL = `https://euw1.api.riotgames.com/lol/league/v4/entries/by-
 let rank = await fetch(SecondRequestURL)
 
     .then(res => res.json())
-    .then(json => json[0]['rank'])
+    .then(json => {
+        if(!json[0]) return
+        json[0]['rank']
+    })
 
 let tier = await fetch(SecondRequestURL)
 
     .then(res => res.json())
-    .then(json => json[0]['tier'])
-
-if(rank === undefined) rank = "classé"
-if(tier === undefined) tier = "non"
+    .then(json => {
+        if(!json[0]) return
+        json[0]['tier']
+    })
 
 let ThirdRequestURL = `https://euw1.api.riotgames.com/lol/match/v4/matchlists/by-account/${EncryptedAccountID}?api_key=${API_KEY}`
-
-message.channel.send(ThirdRequestURL)
 
 let rankedGames = await fetch(ThirdRequestURL)
 
@@ -63,7 +64,7 @@ let rankedGames = await fetch(ThirdRequestURL)
 .then(json => json.totalGames)
 
 
-let ImageURL = `https://ddragon.leagueoflegends.com/cdn/11.10.1/img/profileicon/${IconID}.png`
+let ImageURL = `https://ddragon.leagueoflegends.com/cdn/11.16.1/img/profileicon/${IconID}.png` || "https://www.dexerto.fr/wp-content/uploads/sites/2/2020/10/league-client-update-header.jpg"
 
 let embed = new Discord.MessageEmbed()
 
@@ -72,9 +73,12 @@ let embed = new Discord.MessageEmbed()
     .setColor(client.config.EmColor)
     .addField('Pseudo :', pseudo, true)
     .addField('Niveau :', lvl, true)
-    .addField('Rank :', `${tier} ${rank}`)
-    .addField('Games en Ranked :', `${rankedGames}`)
-    .setThumbnail(ImageURL)
+    if(tier === undefined) tier = "non"
+    if(rank === undefined) rank = "classé"
+    embed.addField('Rank :', `${tier} ${rank}`)
+    if(rankedGames === undefined) rankedGames = "aucune partie en ranked"
+    embed.addField('Games en Ranked :', `${rankedGames} parties en ranked`)
+    embed.setThumbnail(ImageURL)
 
 message.channel.send(embed)
 
