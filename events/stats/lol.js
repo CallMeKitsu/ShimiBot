@@ -75,8 +75,9 @@ let embed = new Discord.MessageEmbed()
     if(tier === undefined) tier = "non"
     if(rank === undefined) rank = "classé"
     embed.addField('Rank :', `${tier} ${rank}`)
-    if(rankedGames === undefined) rankedGames = "aucune partie en ranked"
-    embed.addField('Games en Ranked :', `${rankedGames} parties en ranked`)
+    if(rankedGames === undefined) rankedDESC = "aucune partie en ranked"
+    else(rankedDESC = `${rankedGames} parties en ranked`)
+    embed.addField('Games en Ranked :', rankedDESC)
     embed.setThumbnail(ImageURL)
 
 message.channel.send(embed)
