@@ -4,7 +4,7 @@ module.exports = async (client, message) => {
 
 let args = message.content.trim().split(/ +/g);
 
-const API_KEY = "RGAPI-d2612b45-2f63-4e5f-bbd1-b21ea9945e51"
+const API_KEY = client.apiKEYS.riot
     
 let NAME_REQUEST = args.slice(2).join(" ")
 if(!NAME_REQUEST) return message.channel.send('merci de saisir en argument un nom de joueur')
@@ -44,7 +44,7 @@ let rank = await fetch(SecondRequestURL)
 
     .then(res => res.json())
     .then(json => {
-        if(!json[0]) return
+        if(!json[0]['rank']) return
         json[0]['rank']
     })
 
@@ -52,7 +52,7 @@ let tier = await fetch(SecondRequestURL)
 
     .then(res => res.json())
     .then(json => {
-        if(!json[0]) return
+        if(!json[0]['tier']) return
         json[0]['tier']
     })
 
@@ -68,8 +68,6 @@ let ImageURL = `https://ddragon.leagueoflegends.com/cdn/11.16.1/img/profileicon/
 
 let embed = new Discord.MessageEmbed()
 
-    .setTitle("STATS LOL :")
-    .setURL('https://developer.riotgames.com/apis')
     .setColor(client.config.EmColor)
     .addField('Pseudo :', pseudo, true)
     .addField('Niveau :', lvl, true)

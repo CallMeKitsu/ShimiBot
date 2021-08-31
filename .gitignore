@@ -6,3 +6,4 @@ start.bat
 database/json/tokenLIST.json
 package-lock.json
 /commands/misc/*
+database/json/apiKEYS.json
