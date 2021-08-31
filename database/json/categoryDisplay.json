@@ -6,5 +6,6 @@
     "misc" : "false",
     "moderation" : "true",
     "musique" : "true",
-    "social" : "true"
+    "social" : "true",
+    "utility" : "true"
 }
