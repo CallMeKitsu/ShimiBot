@@ -9,7 +9,6 @@ module.exports.run = async (client, message, args) => {
     
     let embed = new Discord.MessageEmbed()
       .setColor(client.config.EmColor)
-      .setTitle("CHI FU MI :")
       .setDescription(`${message.author.username} a joué ${pfclist[Math.floor(Math.random() * pfclist.length)]}`)
     message.channel.send(embed)
        

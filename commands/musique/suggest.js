@@ -18,7 +18,6 @@ module.exports.run = async (client, message, args) => {
 
     let embed = new Discord.MessageEmbed()
     .setColor(client.config.EmColor)
-    .setTitle("SUGGESTION :")
     .setURL('https://callmekitsu.jimdofree.com/projets/shimi/')
     .setDescription(`**${title}** - *${artist}*`)
     .setFooter('réagissez avec 🔗 pour le lien !')

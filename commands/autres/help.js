@@ -10,12 +10,9 @@ module.exports.run = async (client, message, args) => {
     if(!commandName) {
 
         let embed = new Discord.MessageEmbed()
-        .setTitle("HELP :")
-        .setURL("https://callmekitsu.jimdofree.com/projets/shimi/")
         .setColor(client.config.EmColor)
         .setThumbnail(client.user.avatarURL())
-        .setDescription(`liste des commandes du bot !\nPour plus d'informations sur une commande, tapez :\n\n\`${client.config.prefix}help <command_name>\`\n\nlien du site officiel : https://bit.ly/CallMeKitsuShimi\nremerciements avec \`${client.config.prefix}credits\` ou sur le site /credits\n `)
-        .setFooter(`dev par ${client.config.devBy}`)
+        .setDescription(`\`\`\`${client.config.prefix}help <command_name>\`\`\``)
         let x = 0
         for(const category of categoryList) {  
 

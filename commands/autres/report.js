@@ -8,8 +8,6 @@ module.exports.run = async (client, message, args) => {
 
     let embed = new Discord.MessageEmbed()
     .setColor(client.config.EmColor)
-    .setTitle("REPORT :")
-    .setURL(link)
     .setDescription("vous avez trouvé une erreur ?")
     .addField("faites-en un rapport ici :", link)
     .addField("merci d'utiliser :", `le label "${label}" disponible à droite !`)

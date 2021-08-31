@@ -14,8 +14,6 @@ module.exports.run = async (client, message, args) => {
 
     let embed = new Discord.MessageEmbed()
      .setColor(client.config.EmColor)
-     .setTitle("RENAW :")
-     .setURL("https://renaws.jimdofree.com/")
      .setDescription(`${message.author.username} a rencontré un renaw !!`)
      .attachFiles(renawIMG)
      .setImage(`attachment://${x}.png`)

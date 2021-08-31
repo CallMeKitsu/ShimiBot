@@ -3,10 +3,10 @@
   "devBy": "CallMeKitsu.#0284",
   "admin": "398442888742305802",
   "version": "Alpha 0.4",
-  "EmColor": "#E8980E",
+  "EmColor": "#eb6434",
   "EmColorNeutral": "#36393F",
   "EmColorGreen" : "#1aff00",
-  "EmColorRed": "#ff0000",
+  "EmColorRed": "#c42121",
   "stalkChan": "876077699624497202",
   "invChan": "876501401226870794",
   "reportChan": "876095178853740544",
@@ -17,7 +17,7 @@
   "Stable2": "🟩 unhandled",
   "Stable3": "❌ instable",
   "categoriesList" : ["admin", "animes", "autres", "jeux", "misc", "moderation", "musique", "social"],
-  "CatEmoji": ["👨‍💻", "⛩️", "🦊", "🎲", "👀", "👮‍♂️", "🎶", "❤️"],
+  "CatEmoji": ["👨‍💻", "⛩️", "🦊", "🔥", "👀", "📙", "🍂", "🧡"],
   "stabilityList" : ["stable", "unhandled", "instable"],
   "DBCONNECTION": "mongodb://localhost:27017/test"
 }

@@ -7,7 +7,6 @@ module.exports.run = async (client, message, args) => {
 
     let embed = new Discord.MessageEmbed()
     .setColor(client.config.EmColor)
-    .setTitle("REMERCIEMENTS :")
     .setURL("https://callmekitsu.jimdofree.com/projets/shimi/credits")
     .addField(loli.tag, `pour la recherche des gifs`, true)
     .addField(kimi.tag, 'pour la recherche des gifs', true)

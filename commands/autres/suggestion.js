@@ -8,8 +8,6 @@ module.exports.run = async (client, message, args) => {
 
     let embed = new Discord.MessageEmbed()
     .setColor(client.config.EmColor)
-    .setTitle("SUGGESTION :")
-    .setURL(link)
     .setDescription("vous avez une idée ?")
     .addField("partagez-la ici :", link)
     .addField("merci d'utiliser :", `le label "${label}" disponible à droite !`)

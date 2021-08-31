@@ -8,8 +8,6 @@ module.exports.run = async (client, message, args) => {
 
     let embed = new Discord.MessageEmbed()
     .setColor(client.config.EmColor)
-    .setTitle("QUESTION :")
-    .setURL(link)
     .setDescription("vous avez une question ?")
     .addField("posez-la nous ici :", link)
     .addField("merci d'utiliser :", `le label "${label}" disponible à droite !`)
