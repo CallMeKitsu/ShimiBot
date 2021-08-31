@@ -49,7 +49,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.config = {
     name: "poll",
-    category: "moderation",
+    category: "utility",
     usage: '{channel} .{objet1} .{objet2} .<objet3> .<objet4> .<objet5>',
     stable: "✅ stable",
     description: "crée un sondage rapide avec les objets en choix",
