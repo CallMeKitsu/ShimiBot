@@ -17,8 +17,6 @@ module.exports = (client, message) => {
     if(!StableArray) return message.channel.send("aucune commande avec cette stabilité.")
 
     let embed = new Discord.MessageEmbed()
-    .setTitle("HELP :")
-    .setURL("https://callmekitsu.jimdofree.com/projets/shimi/")
     .setColor(client.config.EmColor)
     .setThumbnail(client.user.avatarURL())
     .addField(`${stability} :`, StableMap)

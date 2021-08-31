@@ -36,8 +36,6 @@ module.exports.run = async (client, message, args) => {
         if(!command) return message.channel.send(`la commande "${commandName}" n'existe pas.`);
 
         let embed = new Discord.MessageEmbed()
-        .setTitle(`HELP : ${command.config.name.toUpperCase()}`)
-        .setURL("https://callmekitsu.jimdofree.com/projets/shimi/")
         .setColor(client.config.EmColor)
         .setThumbnail(client.user.avatarURL())
         .addField(`Statut :`, `${command.config.stable}`, true)
