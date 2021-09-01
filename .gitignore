@@ -7,3 +7,5 @@ database/json/tokenLIST.json
 package-lock.json
 /commands/misc/*
 database/json/apiLIST.json
+database/json/couscous.json
+.gitignore
