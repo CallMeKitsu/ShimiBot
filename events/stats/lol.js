@@ -10,7 +10,7 @@ const API_KEY = client.apiLIST.keys.riot
     
 let NAME_REQUEST = args.slice(2).join(" ")
 if(!NAME_REQUEST) return message.channel.send('merci de saisir en argument un nom de joueur')
-if(limited === "true") return message.channel.send("la clé d'API riot de Shimi a expiré, désolé !")
+if(limited !== "false") return message.channel.send("la clé d'API riot de Shimi a expiré, désolé !")
 
 let RequestURL = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${NAME_REQUEST}?api_key=${API_KEY}`
 
