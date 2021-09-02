@@ -6,20 +6,20 @@ module.exports = (client, message) => {
 
     let input = objARGS[2]
 
-    let output = input * 1000
+    let output = input * 60000 
     
     if(Number.isNaN(output)) return message.channel.send('l\'objet doit être un nombre')
 
     let embed = new Discord.MessageEmbed()
     .setColor(client.config.EmColor)
-    .setDescription("```Méthode : Km > m```")
-    .addField(`${input} kilomètre(s) =`, `${output} mètre(s)`)
+    .setDescription("```Méthode : min > ms```")
+    .addField(`${input} minute(s) =`, `${output} milliseconde(s)`)
 
     message.channel.send(embed)
 
 }
 
 module.exports.props = {
-    type: "distance",
-    name: "km-m"
+    type: "time",
+    name: "min-ms"
 }

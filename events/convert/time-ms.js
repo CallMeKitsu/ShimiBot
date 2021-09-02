@@ -47,3 +47,8 @@ module.exports = (client, message) => {
     message.channel.send(embed)
 
 }
+
+module.exports.props = {
+    type: "time",
+    name: "time-ms"
+}
