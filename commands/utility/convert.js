@@ -22,11 +22,14 @@ module.exports.run = async (client, message, args) => {
     let TIME_EVENTS = collec.filter(x => x.props.type === "time").map(x => x.props.name).join(', ')
     let DIST_EVENTS = collec.filter(x => x.props.type === "distance").map(x => x.props.name).join(', ')
     let VOL_EVENTS = collec.filter(x => x.props.type === "volume").map(x => x.props.name).join(', ')
+    let DIV_EVENTS = collec.filter(x => x.props.type === "divers").map(x => x.props.name).join(', ')
     
     if(!TIME_EVENTS) TIME_EVENTS = "aucune méthode"
     if(!DIST_EVENTS) DIST_EVENTS = "aucune méthode"
     if(!VOL_EVENTS) VOL_EVENTS = "aucune méthode"
+    if(!DIV_EVENTS) DIV_EVENTS = "aucune méthode"
 
+    embed.addField('Méthodes Diverses :', DIV_EVENTS)
     embed.addField('Méthodes Time :', TIME_EVENTS)
     embed.addField('Méthodes Distance :', DIST_EVENTS)
     embed.addField('Méthodes Volume :', VOL_EVENTS)
