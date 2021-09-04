@@ -15,7 +15,6 @@ module.exports = (client, message) => {
     let output1 = input1 /  3.281
     let output2 = input2 /  39.37
 
-    console.log(output1, output2)
     
     if(Number.isNaN(output1)) return message.channel.send('l\'objet doit être un nombre')
     if(Number.isNaN(output2)) return message.channel.send('l\'objet doit être un nombre')
