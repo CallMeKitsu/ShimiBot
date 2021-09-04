@@ -36,6 +36,7 @@ module.exports.run = async (client, message, args) => {
 
     if(!args[1]) message.channel.send(embed)
     if(!eventlist.includes(args[1] + ".js") && args[1] !== undefined) return message.channel.send('méthode inexistante.\nutilisez la commande suggestion pour la proposer')
+    if(args[2].length > 50) return message.channel.send(`l'objet à convertir doit faire moins de 50 caractères`) 
     else client.emit(args[1], message)
 
 }
