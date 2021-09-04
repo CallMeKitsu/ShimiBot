@@ -9,3 +9,4 @@ package-lock.json
 database/json/apiLIST.json
 database/json/couscous.json
 .gitignore
+database/json/annivLIST.json
