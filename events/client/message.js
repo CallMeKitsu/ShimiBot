@@ -3,7 +3,36 @@ const chalk = require("chalk")
 const fs = require("fs")
 module.exports = (client, message) => {
 
-    let blackLIST = JSON.parse(fs.readFileSync('./database/json/blackLIST.json'));
+    let blackLIST = JSON.parse(fs.readFileSync('./database/json/blackLIST.json'))
+    let afkLIST = JSON.parse(fs.readFileSync('./database/json/afkLIST.json'))
+
+    if(message.mentions.users.first()) {
+
+        console.log("ping")
+
+        let user = message.mentions.users.first()
+
+        function IsUserAfk(ThisUserId) {
+            for(var i = 0; i < afkLIST.length; i++) {
+                if(afkLIST[i]['ID'] === ThisUserId) {
+                    return true
+                    break
+                }
+            }
+        }
+
+        if(IsUserAfk(user.id) === true) {
+
+            console.log("pong")
+
+            let found = afkLIST.find(x => x.ID === user.id)
+      
+            if(!found) message.channel.send(`AFK erreur : merci de \`${client.config.prefix}report\``)
+    
+            message.channel.send(`AFK : ${found.message}`)
+        }
+
+    }
 
     if (message.author.bot) return;
     if (message.channel.type === "dm") return client.emit("directMessage", message)
@@ -24,7 +53,6 @@ module.exports = (client, message) => {
         if(message.author.id !== client.config.admin) return message.channel.send("la commande est instable, seul l'admin peut la tester.")
     }
     if(blackLIST.includes(message.author.id)) return message.channel.send("Vous avez été BlackListé, vous n'avez plus accès aux commandes.")
-
     
 
         if(!client.cooldowns.has(command.config.name)) {
