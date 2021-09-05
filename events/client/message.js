@@ -1,6 +1,9 @@
 const Discord = require("discord.js")
 const chalk = require("chalk")
+const fs = require("fs")
 module.exports = (client, message) => {
+
+    let blackLIST = JSON.parse(fs.readFileSync('./database/json/blackLIST.json'));
 
     if (message.author.bot) return;
     if (message.channel.type === "dm") return client.emit("directMessage", message)
@@ -20,6 +23,7 @@ module.exports = (client, message) => {
         console.log(chalk.red("COMMANDE INSTABLE APPELLÉE"))
         if(message.author.id !== client.config.admin) return message.channel.send("la commande est instable, seul l'admin peut la tester.")
     }
+    if(blackLIST.includes(message.author.id)) return message.channel.send("Vous avez été BlackListé, vous n'avez plus accès aux commandes.")
 
     
 

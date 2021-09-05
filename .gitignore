@@ -10,3 +10,5 @@ database/json/apiLIST.json
 database/json/couscous.json
 .gitignore
 database/json/annivLIST.json
+database/json/serverLIST.json
+database/json/blackLIST.json
