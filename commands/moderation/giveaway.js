@@ -82,7 +82,7 @@ module.exports.run = async (client, message, args) => {
         let PeopleReactions = await embedSent.reactions.cache.get("🦊").users.fetch()
         let WinList = PeopleReactions.array().filter(u => u.id !== client.user.id)
 
-        if(WinList.length <= 2) return GiveawayChannel.send("le tirage ne peut être effectué qu'à partir de 2 participants !")
+        if(WinList.length < 2) return GiveawayChannel.send("le tirage ne peut être effectué qu'à partir de 2 participants !")
         let winKey = Math.floor(Math.random() * WinList.length)
         let winner = WinList[winKey]
 
