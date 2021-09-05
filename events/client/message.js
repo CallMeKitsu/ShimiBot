@@ -8,7 +8,7 @@ module.exports = (client, message) => {
 
     if(message.mentions.users.first()) {
 
-        console.log("ping")
+
 
         let user = message.mentions.users.first()
 
@@ -23,7 +23,7 @@ module.exports = (client, message) => {
 
         if(IsUserAfk(user.id) === true) {
 
-            console.log("pong")
+
 
             let found = afkLIST.find(x => x.ID === user.id)
       
