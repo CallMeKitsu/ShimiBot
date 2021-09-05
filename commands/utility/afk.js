@@ -67,7 +67,7 @@ module.exports.run = async (client, message, args) => {
 module.exports.config = {
     name: "afk",
     category: "utility",
-    usage: "",
+    usage: "[ set <message> / remove ]",
     stable: "✅ stable",
     description: "active / désactive votre AFK\nrenverra un message d'AFK lorsque quelqu'un vous mentionnera",
 }

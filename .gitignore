@@ -3,13 +3,7 @@
 .vscode/
 SoGitPush.bat
 start.bat
-database/json/tokenLIST.json
 package-lock.json
 /commands/misc/*
-database/json/apiLIST.json
-database/json/couscous.json
 .gitignore
-database/json/annivLIST.json
-database/json/serverLIST.json
-database/json/blackLIST.json
-database/json/afkLIST.json
+/database/*
