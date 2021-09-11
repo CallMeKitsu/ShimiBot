@@ -6,9 +6,14 @@ module.exports = (client, message) => {
     let blackLIST = JSON.parse(fs.readFileSync('./database/json/blackLIST.json'))
     let afkLIST = JSON.parse(fs.readFileSync('./database/json/afkLIST.json'))
 
+    if (message.author.bot) return;
+    if (message.channel.type === "dm") return client.emit("directMessage", message)
+
+    if(!message.channel.permissionsFor(message.channel.guild.me).has('SEND_MESSAGES')) {
+        return message.author.send(`Shimi n'a pas les permissions d'envoyer un message dans le salon ${message.channel.name}`)
+    }
+
     if(message.mentions.users.first()) {
-
-
 
         let user = message.mentions.users.first()
 
@@ -33,9 +38,6 @@ module.exports = (client, message) => {
         }
 
     }
-
-    if (message.author.bot) return;
-    if (message.channel.type === "dm") return client.emit("directMessage", message)
     
     if(message.content.startsWith(client.config.prefix)) {
     let args = message.content.trim().split(/ +/g);
