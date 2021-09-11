@@ -20,5 +20,6 @@
   "categoriesList" : ["admin", "animes", "autres", "jeux", "misc", "moderation", "musique", "social", "utility"],
   "CatEmoji": ["👨‍💻", "⛩️", "🦊", "🔥", "👀", "📙", "🍂", "🧡", "🪐"],
   "stabilityList" : ["stable", "unhandled", "instable", "private"],
-  "DBCONNECTION": "mongodb://localhost:27017/test"
+  "DBCONNECTION": "mongodb://localhost:27017/test",
+  "SupUrl" : "https://discord.gg/DmAUrFDhvF"
 }

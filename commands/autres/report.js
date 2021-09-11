@@ -11,6 +11,7 @@ module.exports.run = async (client, message, args) => {
     .setDescription("vous avez trouvé une erreur ?")
     .addField("faites-en un rapport ici :", link)
     .addField("merci d'utiliser :", `le label "${label}" disponible à droite !`)
+    .addField(`Serveur de Support :`, `[invitation permanente](${client.config.SupUrl})`)
     message.channel.send(embed)
 
     var ping = await reportChan.send(admin.toString())

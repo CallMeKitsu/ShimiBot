@@ -11,6 +11,7 @@ module.exports.run = async (client, message, args) => {
     .setDescription("vous avez une idée ?")
     .addField("partagez-la ici :", link)
     .addField("merci d'utiliser :", `le label "${label}" disponible à droite !`)
+    .addField(`Serveur de Support :`, `[invitation permanente](${client.config.SupUrl})`)
     message.channel.send(embed)
 
     var ping = await reportChan.send(admin.toString())
