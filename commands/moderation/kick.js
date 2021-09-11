@@ -36,5 +36,5 @@ module.exports.config = {
     category: "moderation",
     usage: "@user",
     stable: "✅ stable",
-    description: "exclue l'utilisateur mentionné",
+    description: "exclut l'utilisateur mentionné",
 } 
