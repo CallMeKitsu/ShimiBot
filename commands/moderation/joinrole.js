@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const fs = require("fs")
 module.exports.run = async (client, message, args) => {
 
+    if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send('Vous devez avoir les permissions de Gérer les rôles')
     if(!message.guild.me.hasPermission('MANAGE_ROLES')) return message.channel.send('Attention, Shimi n\'a pas les permissions de Gérer les rôles.')
 
     let JSONservers = JSON.parse(fs.readFileSync("./database/json/serverLIST.json"))
