@@ -28,8 +28,6 @@ module.exports = (client, message) => {
 
         if(IsUserAfk(user.id) === true) {
 
-
-
             let found = afkLIST.find(x => x.ID === user.id)
       
             if(!found) message.channel.send(`AFK erreur : merci de \`${client.config.prefix}report\``)
@@ -48,7 +46,7 @@ module.exports = (client, message) => {
     const command = client.commands.get(commandName)
 
     if(command.config.category === "admin") {
-        if(message.author.id !== client.config.admin) return message.channel.send("commande créateur. nécéssite une permission admin de Shimi.")
+        if(message.author.id !== client.config.admin && message.author.id !== client.config.admin2) return message.channel.send("commande créateur. nécéssite une permission admin de Shimi.")
     }
     if(command.config.stable === "❌ instable") {
         console.log(chalk.red("COMMANDE INSTABLE APPELLÉE"))
