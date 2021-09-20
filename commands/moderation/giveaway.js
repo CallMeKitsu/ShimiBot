@@ -86,8 +86,8 @@ module.exports.run = async (client, message, args) => {
         let winKey = Math.floor(Math.random() * WinList.length)
         let winner = WinList[winKey]
 
-        if(!winner) return GiveawayChannel.send(`erreur lors du tirage, merci de le signaler avec ${client.config.prefix}report !`)
-        if(winner === undefined) return GiveawayChannel.send(`erreur lors du tirage, merci de le signaler avec ${client.config.prefix}report !`)
+        if(!winner) return GiveawayChannel.send(`erreur lors du tirage, merci de le signaler avec ${client.prefix}report !`)
+        if(winner === undefined) return GiveawayChannel.send(`erreur lors du tirage, merci de le signaler avec ${client.prefix}report !`)
 
         let WinEmbed = new Discord.MessageEmbed()
         .setTitle("GIVEAWAY :")

@@ -4,11 +4,11 @@ module.exports.run = async (client, message, args) => {
     let randomMember = message.guild.members.cache.filter(m => m.presence.status !== 'offline' && !m.user.bot).random()
     
     if(!randomMember) return message.channel.send('erreur lors de la création de la liste de membres')
-    if(!args[1]) return message.channel.send(`commande sans arguments, utilisez ${client.config.prefix}help qui pour plus d'informations`)
+    if(!args[1]) return message.channel.send(`commande sans arguments, utilisez ${client.prefix}help qui pour plus d'informations`)
 
     let NewArgs = args.slice(1).join(" ").trim().split("?")[0]
 
-    if(!NewArgs) return message.channel.send(`commande sans arguments, utilisez ${client.config.prefix}help qui pour plus d'informations`)
+    if(!NewArgs) return message.channel.send(`commande sans arguments, utilisez ${client.prefix}help qui pour plus d'informations`)
 
     message.channel.send(`**${randomMember.user.username}** ${NewArgs}!`)
 

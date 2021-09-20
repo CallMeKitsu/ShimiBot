@@ -20,9 +20,9 @@ module.exports.run = async (client, message, args) => {
     let x = Math.floor(Math.random() * 10) + 1
 
     let imageGirl = {files : [ `./database/match/hetero/${x}_(g).jpg`]}
-    if(!imageGirl) message.channel.send(`erreur de base de données. Merci de report avec ${client.config.prefix}report !`)
+    if(!imageGirl) message.channel.send(`erreur de base de données. Merci de report avec ${client.prefix}report !`)
     let imageBoy = {files : [ `./database/match/hetero/${x}_(b).jpg`]}
-    if(!imageBoy) message.channel.send(`erreur de base de données. Merci de report avec ${client.config.prefix}report !`)
+    if(!imageBoy) message.channel.send(`erreur de base de données. Merci de report avec ${client.prefix}report !`)
 
     let userGirl = GetUserByMention(args[1]) // définir Girl
     if(!userGirl) return message.channel.send("mentions invalides.") // si pas de mentions correctes

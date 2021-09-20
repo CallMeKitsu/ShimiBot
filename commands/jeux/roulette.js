@@ -12,8 +12,6 @@ module.exports.run = async (client, message, args) => {
 
         message.channel.send(RussianVar)
 
-        console.log(x)
-
 
         if (x !== 6) return;
         
@@ -36,7 +34,7 @@ module.exports.run = async (client, message, args) => {
             } else return message.channel.send(`tu l'as échappé belle ! \😒\🚬`)    
         
    
-    } else return message.channel.send(`vous devez être sûr(e) d'utiliser cette commande, regardez son ${client.config.prefix}help !`)
+    } else return message.channel.send(`vous devez être sûr(e) d'utiliser cette commande, regardez son ${client.prefix}help !`)
     
 }
 

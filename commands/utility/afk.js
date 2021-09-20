@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
 
         let VAR_EXIST = JSONafk.find(x => x.ID === message.author.id)
 
-        if(VAR_EXIST !== undefined) return message.channel.send(`vous avez déjà un AFK défini, utilisez \`${client.config.prefix}afk remove\``)
+        if(VAR_EXIST !== undefined) return message.channel.send(`vous avez déjà un AFK défini, utilisez \`${client.prefix}afk remove\``)
 
         let VAR_CONTENT = args.slice(2).join(' ')
         if(!VAR_CONTENT) VAR_CONTENT = `${message.author.username} n'est pas disponible, veuillez rééssayer plus tard.`
@@ -41,7 +41,7 @@ module.exports.run = async (client, message, args) => {
 
         let VAR_EXIST = JSONafk.find(x => x.ID === message.author.id)
 
-        if(VAR_EXIST === undefined) return message.channel.send(`vous n' avez pas d'AFK défini, utilisez \`${client.config.prefix}afk set\``)
+        if(VAR_EXIST === undefined) return message.channel.send(`vous n' avez pas d'AFK défini, utilisez \`${client.prefix}afk set\``)
 
         const fileName = './database/json/afkLIST.json'
 

@@ -12,13 +12,13 @@ module.exports = (client, message) => {
     var MOIS = args[1].trim().split('/')[1]
     var ANNEE = args[1].trim().split('/')[2]
 
-    if(!JOUR) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.config.prefix}help anniv\``)
-    if(!MOIS) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.config.prefix}help anniv\``)
-    if(!ANNEE) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.config.prefix}help anniv\``)
+    if(!JOUR) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.prefix}help anniv\``)
+    if(!MOIS) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.prefix}help anniv\``)
+    if(!ANNEE) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.prefix}help anniv\``)
 
-    if(isNaN(JOUR) === true) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.config.prefix}help anniv\``)
-    if(isNaN(MOIS) === true) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.config.prefix}help anniv\``)
-    if(isNaN(ANNEE) === true) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.config.prefix}help anniv\``)
+    if(isNaN(JOUR) === true) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.prefix}help anniv\``)
+    if(isNaN(MOIS) === true) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.prefix}help anniv\``)
+    if(isNaN(ANNEE) === true) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.prefix}help anniv\``)
 
     let VAR_ANNIV = `${JOUR}/${MOIS}/${ANNEE}`
 

@@ -3,7 +3,7 @@ module.exports.run = async (client, message, args) => {
 
 let type = args[1]
 
-if(!type) return message.channel.send(`choisissez : \`${client.config.prefix}wallpaper lofi\` ou \`${client.config.prefix}wallpaper anime\` ?`)
+if(!type) return message.channel.send(`choisissez : \`${client.prefix}wallpaper lofi\` ou \`${client.prefix}wallpaper anime\` ?`)
 
 const fs = require('fs');
 

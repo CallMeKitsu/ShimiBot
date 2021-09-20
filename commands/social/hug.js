@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
     fs.readdir(dir, (err, files) => {
 
         let x = Math.floor(Math.random() * files.length) + 1
-        if(files.length <= 1) message.channel.send(`erreur de base de données. Merci de report avec ${client.config.prefix}report !`)
+        if(files.length <= 1) message.channel.send(`erreur de base de données. Merci de report avec ${client.prefix}report !`)
         let File = new Discord.MessageAttachment(`./database/${SocialCmdName}/${x}.gif`)
         let user = message.mentions.users.first()
 
@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args) => {
         if(user) SocialDescription =  `**${message.author.username}** fait un câlin à ${user.toString()} !` 
 
         if(!File) { 
-            message.channel.send(`erreur de base de données. Merci de report avec ${client.config.prefix}report !`)
+            message.channel.send(`erreur de base de données. Merci de report avec ${client.prefix}report !`)
             return;
         }
     

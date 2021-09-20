@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const fetch = require('node-fetch')
 module.exports.run = async (client, message, args) => {
 
-    if(!args[1]) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.config.prefix}help lag\``)
+    if(!args[1]) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.prefix}help lag\``)
 
     if(args[1].startsWith('<@') && args[1].endsWith('>')) {
 

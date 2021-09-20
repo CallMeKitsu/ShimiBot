@@ -5,16 +5,16 @@ module.exports.run = async (client, message, args) => {
     if(!GENRE) GENRE = "all"
     if(GENRE === "all") return message.channel.send("le ALL est en developpement.")
     if(!client.suggestLIST.list.includes(GENRE)) return message.channel.send(`le genre musical ${GENRE} n'existe pas`)
-    if (!client.suggestLIST[GENRE]) return (`le genre ${GENRE} existe mais n'est pas dans la liste, merci de ${client.config.prefix}report cette erreur.`)
+    if (!client.suggestLIST[GENRE]) return (`le genre ${GENRE} existe mais n'est pas dans la liste, merci de ${client.prefix}report cette erreur.`)
     let x = Math.floor(Math.random() * client.suggestLIST[GENRE].length)
 
     let title = client.suggestLIST[GENRE][x].name
     let artist = client.suggestLIST[GENRE][x].artist
     let link = client.suggestLIST[GENRE][x].link
 
-    if(!title) return message.channel.send(`erreur de base de donnée (title), merci de ${client.config.prefix}report cette erreur`)
-    if(!artist) return message.channel.send(`erreur de base de donnée (artist), merci de ${client.config.prefix}report cette erreur`)
-    if(!link) return message.channel.send(`erreur de base de donnée (link), merci de ${client.config.prefix}report cette erreur`)
+    if(!title) return message.channel.send(`erreur de base de donnée (title), merci de ${client.prefix}report cette erreur`)
+    if(!artist) return message.channel.send(`erreur de base de donnée (artist), merci de ${client.prefix}report cette erreur`)
+    if(!link) return message.channel.send(`erreur de base de donnée (link), merci de ${client.prefix}report cette erreur`)
 
     let embed = new Discord.MessageEmbed()
     .setColor(client.config.EmColor)

@@ -30,16 +30,16 @@ module.exports = (client, message) => {
 
             let found = afkLIST.find(x => x.ID === user.id)
       
-            if(!found) message.channel.send(`AFK erreur : merci de \`${client.config.prefix}report\``)
+            if(!found) message.channel.send(`AFK erreur : merci de \`${client.prefix}report\``)
     
             message.channel.send(`AFK : ${found.message}`)
         }
 
     }
     
-    if(message.content.startsWith(client.config.prefix)) {
+    if(message.content.startsWith(client.prefix)) {
     let args = message.content.trim().split(/ +/g);
-    let CommandArgs = message.content.slice(client.config.prefix.length).split(/ +/);
+    let CommandArgs = message.content.slice(client.prefix.length).split(/ +/);
     let commandName = CommandArgs.shift().toLowerCase()
 
     if(!client.commands.has(commandName)) return

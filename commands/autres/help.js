@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
         let embed = new Discord.MessageEmbed()
         .setColor(client.config.EmColor)
         .setThumbnail(client.user.avatarURL())
-        .setDescription(`\`\`\`${client.config.prefix}help <command_name>\`\`\``)
+        .setDescription(`\`\`\`${client.prefix}help <command_name>\`\`\``)
         let x = 0
         for(const category of categoryList) {  
 
@@ -40,7 +40,7 @@ module.exports.run = async (client, message, args) => {
         .setThumbnail(client.user.avatarURL())
         .addField(`Statut :`, `${command.config.stable}`, true)
         .addField(`Categorie :`, `${command.config.category}`, true)
-        .addField(`Usage :`, `\`${client.config.prefix}${command.config.name} ${command.config.usage}\``)
+        .addField(`Usage :`, `\`${client.prefix}${command.config.name} ${command.config.usage}\``)
         .addField(`Description :`, command.config.description)
 
         message.channel.send(embed)

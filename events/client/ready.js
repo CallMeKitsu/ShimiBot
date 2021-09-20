@@ -4,7 +4,7 @@ module.exports = (client, message) => {
   console.log(`Bot connecté sur ${client.guilds.cache.size} serveurs, pour un total de ${client.users.cache.size} utilisateurs.`);
   
   let statusList = [
-    `${client.config.prefix}help`,
+    `${client.prefix}help`,
     `Version ${client.config.version}`,
   ]
 

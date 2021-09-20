@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
 const fs = require("fs")
 const chalk = require('chalk')
+const message = require("./events/client/message")
 const client = new Discord.Client()
 client.config = require("./config.json")
 client.renawLIST = require("./database/json/renawLIST.json")
@@ -11,6 +12,26 @@ client.categoryDisplay = require('./database/json/categoryDisplay.json')
 client.suggestLIST = require('./database/json/suggestLIST.json')
 client.apiLIST = require('./database/json/apiLIST.json')
 client.meteoLIST = require('./database/json/meteoLIST.json')
+
+function GetPrefixById(GuildID) { 
+
+    let JSONservers = JSON.parse(fs.readFileSync('./database/json/serverLIST.json'))
+
+    let ThePrefix = client.config.prefix
+
+    let found = JSONservers.find(x => x.ID === GuildID)
+
+    if(found && found.prefix !== "") {
+        ThePrefix = found.CustomPrefix
+    }
+
+    return ThePrefix
+
+}
+
+client.on('message', message => {
+    client.prefix = GetPrefixById(message.guild.id)
+})
 
 client.login(client.tokenLIST.default)
 
