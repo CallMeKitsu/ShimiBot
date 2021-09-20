@@ -12,7 +12,7 @@ module.exports = (client, message) => {
       
         const newSERVER =     {
             ID : message.guild.id,
-            prefix : "",
+            CustomPrefix : "",
             ticketChan : "",
             JoinRole : "",
             blankKey0 : "",
