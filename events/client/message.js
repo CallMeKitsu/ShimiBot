@@ -3,8 +3,11 @@ const chalk = require("chalk")
 const fs = require("fs")
 module.exports = (client, message) => {
 
+    // if(message.content === `<@${client.user.id}>`) return client.emit("botPinged", message)
+
     let blackLIST = JSON.parse(fs.readFileSync('./database/json/blackLIST.json'))
     let afkLIST = JSON.parse(fs.readFileSync('./database/json/afkLIST.json'))
+    let JSONconfig = JSON.parse(fs.readFileSync('./config.json'))
 
     if (message.author.bot) return;
     if (message.channel.type === "dm") return client.emit("directMessage", message)
@@ -81,19 +84,10 @@ module.exports = (client, message) => {
 
     } // prefix okei
 
-    if(client.config.stalkVar === "on") { // si StalkVar = on
+    if(JSONconfig.stalkVar === "on") { // si StalkVar = on
 
-        let embed = new Discord.MessageEmbed() // embed de Stalk
-        .setColor(client.config.EmColor)
-        .addField(message.author.tag, message.content)
-        .addField(`informations :`, `channel : ${message.channel.id} \nserver : ${message.guild.id}`)
-     
-        client.channels.fetch(client.config.stalkChan) // trouver StalkChan
-        .then(channel => channel.send(embed) ) // envoyer l'embed
+        client.emit("stalkMessage", message)
 
     } 
     
-    if(client.config.stalkVar === "off") { // si StalkVar = off
-    return // ne rien faire
-    } 
 }
