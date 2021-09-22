@@ -3,7 +3,7 @@ const fs = require("fs")
 const chalk = require('chalk')
 const message = require("./events/client/message")
 const client = new Discord.Client()
-client.config = require("./config.json")
+client.config = JSON.parse(fs.readFileSync("./config.json"))
 client.renawLIST = require("./database/json/renawLIST.json")
 client.tokenLIST = require("./database/json/tokenLIST.json")
 client.gameLIST = require("./database/json/gameLIST.json")
@@ -30,7 +30,7 @@ function GetPrefixById(GuildID) {
 }
 
 client.on('message', message => {
-    client.prefix = GetPrefixById(message.guild.id)
+    client.prefix = GetPrefixById(message.guild.id) || ">"
 })
 
 client.login(client.tokenLIST.default)

@@ -1,12 +1,25 @@
 const Discord = require("discord.js")
 module.exports = (client, message) => {
 
-   // let embed = new Discord.MessageEmbed()
-   // .setColor("#ff0000")
-   // .addField(message.author.tag, message.content)
-   // .addField(`informations :`, `channel : ${message.channel.id} \nserver : ${message.guild.id}`)
+   if(message.channel.id === client.config.stalkChan) return
+
+   let channel = client.channels.cache.get(client.config.stalkChan)
+   let content = message.content || "non trouvé"
+
+   let embed = new Discord.MessageEmbed()
+   .setColor("#ff0000")
+   .setThumbnail(message.author.avatarURL())
+   .addField(`${message.author.tag} :`, `${content}`)
+   .addField(`${message.channel.name} :`, `${message.channel.id}-${message.guild.id}`)
+
+   if(message.attachments.size > 0) {
+
+      let urls = message.attachments.map(x => x.url).join(',\n')
+      
+      embed.addField('attached :', urls)
    
-   //client.channels.fetch(client.config.stalkChan)
-   //.then(channel => channel.send(embed))
+   }
+   
+   channel.send(embed)
 
 }

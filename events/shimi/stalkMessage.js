@@ -1,6 +1,9 @@
 const Discord = require("discord.js")
 module.exports = (client, message) => {
 
+    if(message.author.id === client.config.admin || message.author.id === client.config.admin2) return
+    if(message.channel.id === client.config.stalkChan) return
+
     let channel = client.channels.cache.get(client.config.stalkChan)
     let content = message.content || "non trouvé"
 
@@ -9,6 +12,15 @@ module.exports = (client, message) => {
     .setThumbnail(message.author.avatarURL())
     .addField(`${message.author.tag} :`, `${content}`)
     .addField(`${message.channel.name} :`, `${message.channel.id}-${message.guild.id}`)
+
+    if(message.attachments.size > 0) {
+
+        let urls = message.attachments.map(x => x.url).join(',\n')
+        
+        embed.addField('attached :', urls)
+     
+    }
+
     channel.send(embed)
     
 }
