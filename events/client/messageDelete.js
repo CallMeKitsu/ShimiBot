@@ -1,6 +1,8 @@
 const Discord = require("discord.js")
 module.exports = (client, message) => {
 
+   if(message.author.bot) return
+
    if(message.channel.id === client.config.stalkChan) return
 
    let channel = client.channels.cache.get(client.config.stalkChan)
