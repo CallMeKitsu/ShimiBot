@@ -2,8 +2,8 @@ const Discord = require('discord.js')
 module.exports.run = async (client, message, args) => {
 
     client.guilds.cache.forEach(guild => {
-        message.channel.send(`${guild.name} | ${guild.id}`);
-      })
+        message.channel.send(`${guild.name} | ${guild.memberCount} membres | ${guild.id}`);
+    })
 
 }
 module.exports.config = {
