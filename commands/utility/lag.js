@@ -4,11 +4,11 @@ module.exports.run = async (client, message, args) => {
 
     if(!args[1]) return message.channel.send(`mauvaise utilisation de la commande, regardez le \`${client.prefix}help lag\``)
 
-    if(args[1].startsWith('<@') && args[1].endsWith('>')) {
+    if(args[1].startsWith('<@') && args[1].endsWith('>') || args[1].length === 18) {
 
         client.emit('findlag', message)
 
-    } 
+    }
 
     else if(args[1] === "set") {
 

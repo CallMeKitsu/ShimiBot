@@ -1,11 +1,14 @@
 const Discord = require("discord.js")
 module.exports = (client, message) => {
 
+    let args = message.content.trim().split(' ')
+
     const fs = require('fs')
 
     let JSONlag = JSON.parse(fs.readFileSync('./database/json/lagLIST.json'))
 
-    let user = message.mentions.users.first()
+    let user = message.mentions.users.first() || client.users.cache.get(args[1])
+    if(!user) return message.channel.send(`l'utilisateur est introuvable`)
 
     let found = JSONlag.find(x => x.ID === user.id)
   
