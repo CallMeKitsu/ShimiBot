@@ -3,8 +3,6 @@ const chalk = require("chalk")
 const fs = require("fs")
 module.exports = (client, message) => {
 
-    // if(message.content === `<@${client.user.id}>`) return client.emit("botPinged", message)
-
     let blackLIST = JSON.parse(fs.readFileSync('./database/json/blackLIST.json'))
     let afkLIST = JSON.parse(fs.readFileSync('./database/json/afkLIST.json'))
     let JSONconfig = JSON.parse(fs.readFileSync('./config.json'))
@@ -38,6 +36,11 @@ module.exports = (client, message) => {
             message.channel.send(`AFK : ${found.message}`)
         }
 
+    }
+
+    if(message.mentions.has(client.user.id)) {
+        if(message.author.id === client.config.admin || message.author.id === client.config.admin2) return
+        return client.emit("botPinged", message)
     }
     
     if(message.content.startsWith(client.prefix)) {
