@@ -5,6 +5,7 @@ module.exports = (client, message) => {
 
    let channel = client.channels.cache.get(client.config.stalkChan)
    let content = message.content || "non trouvé"
+   if (content.length > 1020) content = "content > 1020 char"
 
    let embed = new Discord.MessageEmbed()
    .setColor("#ff0000")
