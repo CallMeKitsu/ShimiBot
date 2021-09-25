@@ -1,7 +1,6 @@
 const Discord = require("discord.js")
 const fs = require("fs")
 const chalk = require('chalk')
-const message = require("./events/client/message")
 const client = new Discord.Client()
 client.config = JSON.parse(fs.readFileSync("./config.json"))
 client.renawLIST = require("./database/json/renawLIST.json")
