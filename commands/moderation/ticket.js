@@ -1,53 +1,18 @@
 const Discord = require('discord.js')
 module.exports.run = async (client, message, args) => {
 
-    let NewArgs = message.content.trim().split('.');
+    // CHAN.ID_send_embed <.category name == support>
 
-    let channelID = args[1]
-    let categoryName = NewArgs[1]
-    let ticketEntry = NewArgs[2]
+    let embedChannel = message.mentions.channels.first() || client.channels.cache.get(args[1])
+    if(!embedChannel) return message.channel.send(`le salon n'existe pas ou n'a pas été trouvé`)
 
-    if(!channelID) return message.channel.send(`veuillez saisir l'ID du salon de création de tickets`)
-    if(!categoryName) categoryName = "support"
-    if(!ticketEntry) ticketEntry = `ticket`
-
-    let ticketChannel = message.mentions.channels.first() || client.channels.cache.get(channelID)
-
-    let TrueCategoryFound = message.guild.channels.cache.find(c => c.name == categoryName && c.type == "category")
-
-    if(!ticketChannel) return message.channel.send(`le salon qui correspond à l'ID ${channelID} n'existe pas`)
-
-    if(!TrueCategoryFound) {
-        message.guild.channels.create(categoryName, {
-                type: 'category',
-                position: 1,
-                permissionOverwrites: [
-                    {
-                        id: message.guild.id,
-                        allow: ['VIEW_CHANNEL'],
-                    }]
-        })
+    let embed = new Discord.MessageEmbed()
+    .setColor(client.config.EmColor)
+    .setDescription('**Réagissez avec \📥 pour ouvrir un ticket !**')
     
-    } else return;
-    
-    
-    x = TrueCategoryFound.children.size + 1
-    let FinallyTicketName = `${ticketEntry}${x}`
+    let embedSent = await embedChannel.send(embed)
 
-    message.channel.send(FinallyTicketName)
-
-    console.log(channelID, FinallyTicketName, x, TrueCategoryFound.name, ticketChannel.name, error)
-    
-  //  message.guild.channels.create(ticketName, {
-  //      type: 'text',
-  //      parent: TrueCategoryFound,
-  //      permissionOverwrites: [
-  //          {
-  //              id: message.guild.id,
-  //              allow: ['VIEW_CHANNEL'],
-  //          }]
-  //  })
-
+    embedSent.react("📥")
 
 
 }
