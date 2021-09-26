@@ -42,6 +42,6 @@ module.exports.config = {
     name: "suggest",
     category: "musique",
     usage: "<[ classique / jazz ]>",
-    stable: "✅ stable",
+    stable: "📦 empty",
     description: "des suggestions musicales triées par genre",
 } 

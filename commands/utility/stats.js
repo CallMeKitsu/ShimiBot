@@ -11,6 +11,6 @@ module.exports.config = {
     name: "stats",
     category: "utility",
     usage: "{jeu} {joueur}",
-    stable: "✅ stable",
+    stable: "🟩 unhandled",
     description: "renvoie les stats d'un joueur\n!! ne peut contenir de caractères spéciaux",
 }

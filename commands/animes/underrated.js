@@ -61,6 +61,6 @@ module.exports.config = {
     name: "underrated",
     category: "animes",
     usage: "[ waifu / husbando ]",
-    stable: "✅ stable",
+    stable: "📦 empty",
     description: "vous présente votre nouvelle / nouveau waifu / hubsando sous-coté(é) !",
 } 

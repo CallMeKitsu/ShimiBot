@@ -18,6 +18,7 @@
   "Stable2": "🟩 unhandled",
   "Stable3": "❌ instable",
   "Stable4": "🔒 private",
+  "Stable5": "📦 empty",
   "categoriesList": [
     "admin",
     "animes",
@@ -44,7 +45,8 @@
     "stable",
     "unhandled",
     "instable",
-    "private"
+    "private",
+    "empty"
   ],
   "DBCONNECTION": "mongodb://localhost:27017/test",
   "SupUrl": "https://discord.gg/DmAUrFDhvF"

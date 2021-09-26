@@ -45,6 +45,6 @@ module.exports.config = {
     name: "convert",
     category: "utility",
     usage: '{method} <{objet1}>',
-    stable: "✅ stable",
+    stable: "📦 empty",
     description: "convertit des valeurs selon une méthode\n!! méthodes : `>convert` pour les afficher",
 }

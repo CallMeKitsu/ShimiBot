@@ -10,6 +10,7 @@ module.exports = (client, message) => {
     if(stability === "unhandled") VarStable = "🟩 unhandled"
     if(stability === "instable") VarStable = "❌ instable"
     if(stability === "private") VarStable = "🔒 private"
+    if(stability === "empty") VarStable = "📦 empty"
 
     let StableMap = client.commands.filter(stb => stb.config.stable === VarStable).map(cmd => cmd.config.name).join(', ')
     let StableArray = client.commands.filter(stb => stb.config.stable === VarStable).map(cmd => cmd.config.name)

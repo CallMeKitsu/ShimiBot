@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
 
             embed.addField(
                 `\\${client.config.CatEmoji[x]} ${category} :`,
-                `${client.commands.filter(cat => cat.config.category === category.toLowerCase()).map(cmd => cmd.config.name).join(', ')}`
+                `${client.commands.filter(cat => cat.config.category === category.toLowerCase() && cat.config.stable === "✅ stable").map(cmd => cmd.config.name).join(', ')}`
             )
             
             } x = x + 1
