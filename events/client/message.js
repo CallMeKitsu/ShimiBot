@@ -39,8 +39,10 @@ module.exports = (client, message) => {
     }
 
     if(message.mentions.has(client.user.id)) {
-        if(message.author.id === client.config.admin || message.author.id === client.config.admin2) return
-        return client.emit("botPinged", message)
+        if(message.author.id !== client.config.admin && message.author.id !== client.config.admin2 && message.content.startsWith(client.prefix) === false) {
+            return client.emit("botPinged", message)
+        }
+        
     }
     
     if(message.content.startsWith(client.prefix)) {
@@ -56,7 +58,7 @@ module.exports = (client, message) => {
     }
     if(command.config.stable === "❌ instable") {
         console.log(chalk.red("COMMANDE INSTABLE APPELLÉE"))
-        if(message.author.id !== client.config.admin) return message.channel.send("la commande est instable, seul l'admin peut la tester.")
+        if(message.author.id !== client.config.admin && message.author.id !== client.config.admin2) return message.channel.send("la commande est instable, seul l'admin peut la tester.")
     }
     if(blackLIST.includes(message.author.id)) return message.channel.send("Vous avez été BlackListé, vous n'avez plus accès aux commandes.")
     
