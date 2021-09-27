@@ -29,6 +29,7 @@ function GetPrefixById(GuildID) {
 }
 
 client.on('message', message => {
+    if (message.channel.type === "dm") return client.prefix = ">"
     client.prefix = GetPrefixById(message.guild.id) || ">"
 })
 
