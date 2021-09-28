@@ -16,6 +16,8 @@ module.exports.run = async (client, message, args) => {
             else return json[0]['definition']
         })
 
+    if(def === undefined) return message.channel.send(`Shimi n'a rien trouvé pour "${SEARCH_REQUEST}"`)
+
     const title = await fetch(RequestURL)
 
         .then(res => res.json())
@@ -26,14 +28,13 @@ module.exports.run = async (client, message, args) => {
     .then(res => res.json())
     .then(json => json[0]['source'])
     
-    if(extract === undefined) return message.channel.send(`Shimi n'a rien trouvé pour "${SEARCH_REQUEST}"`)
 
     let embed = new Discord.MessageEmbed()
 
     .setColor(client.config.EmColor)
     .setThumbnail(client.user.avatarURL())
-    .addField(`${title} :`, def)
-    .setFooter(`source : ${source}`)
+    .addField(`Définition : ${title}`, def)
+    .setFooter(`Résultats provenant de : ${source}`)
 
     message.channel.send(embed)
 
@@ -43,6 +44,6 @@ module.exports.config = {
     name: "def",
     category: "utility",
     usage: "{recherche}",
-    stable: "❌ instable",
+    stable: "✅ stable",
     description: "renvoie la définition du mot recherché\n!! ne peut contenir de caractères spéciaux",
 } 
