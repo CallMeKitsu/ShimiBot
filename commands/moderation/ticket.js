@@ -3,7 +3,17 @@ module.exports.run = async (client, message, args) => {
 
     // CHAN.ID_send_embed <.category name == support>
 
-    let embedChannel = message.mentions.channels.first() || client.channels.cache.get(args[1])
+    let JSONservers = JSON.parse(fs.readFileSync('./database/json/serverLIST.json'))
+
+    let found = JSONservers.find(x => x.ID === message.guild.id)
+
+    if(!found) return client.emit("addServer", message)
+
+
+
+    // ===========================================================
+    
+    let embedChannel = client.channels.cache.get(found.ticketChan)
     if(!embedChannel) return message.channel.send(`le salon n'existe pas ou n'a pas été trouvé`)
 
     let embed = new Discord.MessageEmbed()
