@@ -15,9 +15,10 @@ module.exports.run = async (client, message, args) => {
   if(args[1] === "off") StalkVARIABLE = "off"
 
   if(args[1] === "id") {
-    let channel = client.channels.cache.get(args[1]) || message.mentions.channels.first()
+    let channel = client.channels.cache.get(args[2]) || message.mentions.channels.first()
     if(!channel) return message.channel.send('merci de préciser le salon')
     StalkCHANNEL = channel.id
+    message.channel.send(`merci, le salon de log est maintenant ${JSONconfig.stalkChan}`)
   }
 
   if(args[1] !== "on" && args[1] !== "off" && args[1] !== "id") return message.channel.send("envoyez soit <on> soit <off>")
