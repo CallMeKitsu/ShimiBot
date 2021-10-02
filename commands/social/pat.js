@@ -37,6 +37,6 @@ module.exports.config = {
     name: "pat",
     category: "social",
     usage: "<@user>",
-    stable: "✅ stable",
+    stable: "📦 empty",
     description: "patpat l'utilisateur mentionné",
 } 

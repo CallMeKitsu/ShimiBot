@@ -37,6 +37,6 @@ module.exports.config = {
     name: "pout",
     category: "social",
     usage: "<@user>",
-    stable: "✅ stable",
+    stable: "📦 empty",
     description: "boude l'utilisateur mentionné",
 }

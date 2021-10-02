@@ -37,6 +37,6 @@ module.exports.config = {
     name: "kiss",
     category: "social",
     usage: "<@user>",
-    stable: "✅ stable",
+    stable: "📦 empty",
     description: "embrasse l'utilisateur mentionné",
 }
