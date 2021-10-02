@@ -5,7 +5,7 @@ Il a pour but de réunir un maximum de fonctionnalités en un seul bot, complèt
 
 Commandes fun, social, modération, jeux, musique et bien plus :P
 
-Actuellement en développement, en version **Alpha 0.5.0** !
+Actuellement en développement, en version **Alpha 0.6.0** !
 
 # Invite :
 > https://bit.ly/DiscordShimiInvite
