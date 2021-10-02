@@ -3,7 +3,11 @@ const Discord = require('discord.js')
 const fetch = require('node-fetch')
 module.exports.run = async (client, message, args) => {
 
-    let SEARCH_REQUEST = args.slice(1).join(" ")
+    const regex = /^[A-Za-z]+$/
+
+    if(args[1].match(regex) < args[1].length) return client.emit('alphaCharsNeeded', message)
+
+    let SEARCH_REQUEST = args[1].toLowerCase().toString()
     let API_KEY = client.apiLIST.keys.dicolink
 
     let RequestURL = `https://api.dicolink.com/v1/mot/${SEARCH_REQUEST}/definitions?limite=200&api_key=${API_KEY}`
@@ -16,7 +20,7 @@ module.exports.run = async (client, message, args) => {
             else return json[0]['definition']
         })
 
-    if(def === undefined) return message.channel.send(`Shimi n'a rien trouvé pour "${SEARCH_REQUEST}"`)
+    if (def === undefined) return message.channel.send(`Shimi n'a rien trouvé pour "${SEARCH_REQUEST}"`)
 
     const title = await fetch(RequestURL)
 
