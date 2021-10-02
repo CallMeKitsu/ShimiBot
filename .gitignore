@@ -7,3 +7,4 @@ package-lock.json
 /commands/misc/*
 .gitignore
 /database/*
+config.json
