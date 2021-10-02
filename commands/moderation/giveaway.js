@@ -2,10 +2,8 @@ const { Giveaway } = require('discord-giveaways')
 const Discord = require('discord.js')
 module.exports.run = async (client, message, args) => {
 
-    // structure : >giveaway CHANNELID 1j 2h 5min "item à gagner"condition"
-
-
     if (message.member.hasPermission('ADMINISTRATOR')) {
+
     function GetMsbyForm(SetDays, SetHours, SetMinutes) {
 
         let MSdays = SetDays * 86400000   
@@ -40,9 +38,14 @@ module.exports.run = async (client, message, args) => {
 
     if(MStime < 0) return message.channel.send("le temps ne peut être négatif")
 
+    const regex = /^[A-Za-z]+$/
+
     let item = NewArgs[1]
     let FormatedTime = `${days} jours, ${hours} heures et ${minutes} minutes !`
     let GiveawayConditions = NewArgs[2]
+
+    if(item.match(regex) < item.length) return client.emit('alphaCharsNeeded', message)
+    if(GiveawayConditions.match(regex) < GiveawayConditions.length) return client.emit('alphaCharsNeeded', message)
 
     if(Number.isNaN(MStime)) return message.channel.send(`vous devez saisir des nombres valides comme arguments de temps.`)
     if(!item) item = "item non défini."
@@ -100,7 +103,7 @@ module.exports.run = async (client, message, args) => {
 
     }, MStime);
     
-    } else return message.channel.send('cette commande requiert les permissions Administrateur du serveur.')
+    } else return client.emit('permAdmin', message)
 }
 
 module.exports.config = {
