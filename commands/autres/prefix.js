@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 
     let JSONservers = JSON.parse(fs.readFileSync("./database/json/serverLIST.json"))
 
-    if(!args[1]) return message.channel.send('mauvaise utilisation de la commande')
+    if(!args[1]) return client.emit('invalidArg', message)
     if(args[1].length > 7) return message.channel.send('le préfixe doit être plus court que 7 caractères !')
    
     let found = JSONservers.find(x => x.ID === message.guild.id)

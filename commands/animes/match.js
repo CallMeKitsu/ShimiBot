@@ -1,8 +1,8 @@
 const Discord = require('discord.js')
 module.exports.run = async (client, message, args) => {
 
-    if(!args[1]) return message.channel.send("merci de mentionner deux personnes !")
-    if(!args[2]) return message.channel.send("merci de mentionner deux personnes !")
+    if(!args[1]) return client.emit('twoMentionsNeeded', message)
+    if(!args[2]) return client.emit('twoMentionsNeeded', message)
 
     function GetUserByMention(mention) {
     
@@ -20,17 +20,17 @@ module.exports.run = async (client, message, args) => {
     let x = Math.floor(Math.random() * 10) + 1
 
     let imageGirl = {files : [ `./database/match/hetero/${x}_(g).jpg`]}
-    if(!imageGirl) message.channel.send(`erreur de base de données. Merci de report avec ${client.prefix}report !`)
+    if(!imageGirl) return client.emit('databaseError', message)
     let imageBoy = {files : [ `./database/match/hetero/${x}_(b).jpg`]}
-    if(!imageBoy) message.channel.send(`erreur de base de données. Merci de report avec ${client.prefix}report !`)
+    if(!imageBoy) return client.emit('databaseError', message)
 
-    let userGirl = GetUserByMention(args[1]) // définir Girl
-    if(!userGirl) return message.channel.send("mentions invalides.") // si pas de mentions correctes
-    if(userGirl.bot) return message.channel.send("impossible d'utiliser cette commande sur un bot")
+    let userGirl = GetUserByMention(args[1])
+    if(!userGirl) return client.emit('invalidUser', message)
+    if(userGirl.bot) return client.emit('mentionsBot', message)
 
-    let userBoy = GetUserByMention(args[2]) // définir Boy
-    if(!userBoy) return message.channel.send("mentions invalides.") // si pas de mentions correctes
-    if(userBoy.bot) return message.channel.send("impossible d'utiliser cette commande sur un bot")
+    let userBoy = GetUserByMention(args[2])
+    if(!userBoy) return client.emit('invalidUser', message)
+    if(userBoy.bot) return client.emit('mentionsBot', message)
 
     userGirl.send(imageGirl)
     setTimeout(() => { userGirl.send(`voilà ta pp avec ${userBoy.username} ! ❤️`) }, 1000)

@@ -24,7 +24,7 @@ if(args[2].startsWith('-')) {
 
 if(!args[2].startsWith("-") && !args[2].startsWith('+')) return message.channel.send('merci d\'utiliser - et + pour les décalages horaires !')
     
-if( Number.isNaN(VAR_ADDTIME) === true) return message.channel.send('mauvaise utilisation de la commande')
+if( Number.isNaN(VAR_ADDTIME) === true) return client.emit('invalidArg', message)
 
 async function NewLag() {
 

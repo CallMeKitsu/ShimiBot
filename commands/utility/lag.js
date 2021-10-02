@@ -12,11 +12,11 @@ module.exports.run = async (client, message, args) => {
 
     else if(args[1] === "set") {
 
-        if(!args[2]) return message.channel.send('mauvaise utilisation de la commande')
+        if(!args[2]) return client.emit('invalidArg', message)
         client.emit('newlag', message)
 
     }
-    else return message.channel.send('mauvaise utilisation de la commande')
+    else return client.emit('invalidArg', message)
 
 }
 

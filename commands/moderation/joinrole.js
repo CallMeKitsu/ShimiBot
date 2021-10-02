@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
 
     let JSONservers = JSON.parse(fs.readFileSync("./database/json/serverLIST.json"))
 
-    if(!args[1]) return message.channel.send('mauvaise utilisation de la commande')
+    if(!args[1]) return client.emit('invalidArg', message)
 
     let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1])
     

@@ -3,7 +3,7 @@ module.exports.run = async (client, message, args) => {
 
     const maintenant = new Date(Date.now())
 
-    if(!args[1]) return message.channel.send('mauvaise utilisation de la commande')    
+    if(!args[1]) return client.emit('invalidArg', message)    
 
     let ArgumentSlash = args[1].trim().split('/')
 
@@ -11,8 +11,8 @@ module.exports.run = async (client, message, args) => {
     let month = ArgumentSlash[1]
     let year = ArgumentSlash[2]
 
-    if(!day) return message.channel.send('mauvaise utilisation de la commande')
-    if(!month) return message.channel.send('mauvaise utilisation de la commande')
+    if(!day) return client.emit('invalidArg', message)
+    if(!month) return client.emit('invalidArg', message)
 
     if(!year) {
         if(maintenant.getMonth() > month -1) year = maintenant.getFullYear() + 1

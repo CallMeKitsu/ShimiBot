@@ -59,7 +59,7 @@ module.exports.run = async (client, message, args) => {
         message.channel.send('merci, vous avez bien supprimé votre AFK !')
 
     }
-    if(args[1] !== "remove" && args[1] !== "set") return message.channel.send('mauvaise utilisation de la commande')
+    if(args[1] !== "remove" && args[1] !== "set") return client.emit('invalidArg', message)
 
 
 }
