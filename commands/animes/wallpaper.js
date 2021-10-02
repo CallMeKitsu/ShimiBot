@@ -36,14 +36,15 @@ if(type === "anime" || type === "a") {
 
 }
 if(type === "phone") return client.emit('PhoneWallpaper', message)
-if(type !== "lofi" && type !== "l" && type !== "anime" && type !== "a" && type !== "phone") return message.channel.send("merci d'utiliser un argument correct de la commande.")
+
+if(type !== "lofi" && type !== "l" && type !== "anime" && type !== "a" && type !== "phone") return client.emit('invalidArg', message)
 
 }
 
 module.exports.config = {
     name: "wallpaper",
     category: "animes",
-    usage: "[ lofi / anime ]",
-    stable: "🟩 unhandled",
-    description: "un nouveau fond d'écran PC d'anime ?",
+    usage: "[[ lofi / anime ] / [phone]] <[ lofi / anime ]>",
+    stable: "📦 empty",
+    description: "un nouveau fond d'écran d'anime ?\nutilisez \"phone\" en premier argument pour les fonds de smartphone",
 } 
