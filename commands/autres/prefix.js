@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.config = {
     name: "prefix",
-    category: "moderation",
+    category: "autres",
     usage: "{prefix}",
     stable: "✅ stable",
     description: "change le préfixe du serveur",
