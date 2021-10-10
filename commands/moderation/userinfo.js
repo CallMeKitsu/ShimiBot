@@ -38,6 +38,29 @@ module.exports.run = async (client, message, args) => {
         if(!member) {
           member = message.guild.member(message.author) } // si MEMBER existe pas, MEMBER = Auteur
 
+    let createdAt = new Date(user.createdAt)
+
+          let mois = [
+            'janvier',
+            'février',
+            'mars',
+            'avril',
+            'mai',
+            'juin',
+            'juillet',
+            'aout',
+            'septembre',
+            'octobre',
+            'novembre',
+            'décembre'
+          ]
+          
+    let createdAtStr = `le ${createdAt.getDate()} ${mois[createdAt.getMonth()]} ${createdAt.getFullYear()} à ${createdAt.getHours()}:${createdAt.getMinutes()}`      
+
+    let joinedAt = new Date(member.joinedAt)
+          
+    let joinedAtStr = `le ${joinedAt.getDate()} ${mois[joinedAt.getMonth()]} ${joinedAt.getFullYear()} à ${joinedAt.getHours()}:${joinedAt.getMinutes()}`
+
     let embed = new Discord.MessageEmbed() // Embed d'explications
 
         .setColor(client.config.EmColor) // couleur de l'embed
@@ -46,8 +69,8 @@ module.exports.run = async (client, message, args) => {
         .addField(`Pseudo :`, user.username, true) // Pseudo
         .addField(`Surnom :`, member.nickname, true) // Surnom
         .addField(`Tag :`, `#${user.discriminator}`, true) // tag de l'user discord
-        .addField(`Date de création du compte :`, user.createdAt) // créa du compte
-        .addField(`Date d'entrée sur le serveur :`, member.joinedAt) // date d'entrée
+        .addField(`Date de création du compte :`, createdAtStr) // créa du compte
+        .addField(`Date d'entrée sur le serveur :`, joinedAtStr) // date d'entrée
         .setThumbnail(user.avatarURL()) // avatar = image 
         .setFooter(`ID : ${user.id}`)
 
