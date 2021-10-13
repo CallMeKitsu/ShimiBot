@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 module.exports.run = async (client, message, args) => {
 
-    if (message.member.hasPermission('ADMINISTRATOR')) {
-      if (message.guild.me.hasPermission('MANAGE_CHANNELS')) {
+    if (message.member.hasPermission('KICK_MEMBERS')) {
+      if (message.guild.me.hasPermission('KICK_MEMBERS')) {
         const user = message.mentions.users.first();
         if (user) {
           const member = message.guild.member(user);
@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args) => {
  
         }
       } else return message.channel.send(`Shimi n'a pas les permissions nécéssaires pour kick ${user.name}`)
-      } else return message.channel.send('cette commande requiert les permissions Administrateur du serveur.')
+      } else return message.channel.send('cette commande requiert les permissions Exclure des membres.')
 
 }
 

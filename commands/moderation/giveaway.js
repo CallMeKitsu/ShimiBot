@@ -2,7 +2,7 @@ const { Giveaway } = require('discord-giveaways')
 const Discord = require('discord.js')
 module.exports.run = async (client, message, args) => {
 
-    if (message.member.hasPermission('ADMINISTRATOR')) {
+    if (message.member.hasPermission('MANAGE_CHANNELS')) {
 
     function GetMsbyForm(SetDays, SetHours, SetMinutes) {
 
