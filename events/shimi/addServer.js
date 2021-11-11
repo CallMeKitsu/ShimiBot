@@ -12,6 +12,7 @@ module.exports = (client, message) => {
       
         const newSERVER =     {
             ID : message.guild.id,
+            name: message.guild.name,
             CustomPrefix : "",
             ticketChan : "",
             JoinRole : "",
