@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 
     let sentence = list[Math.floor(Math.random() * list.length)]
 
-    let filter = msg => msg.author.id === message.author.id
+    let filter = msg => msg.content.length > 1
 
     let embed = new Discord.MessageEmbed()
     .setColor(client.config.EmColor)
