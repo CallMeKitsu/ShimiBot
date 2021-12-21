@@ -30,13 +30,13 @@ module.exports.run = async (client, message, args) => {
     }
     
 
-    let user = GetUserByMention(args[1]) // créer USER
+    let user = GetUserByMention(args[1]) || client.users.cache.get(args[1])
         if(!user) { 
-          user = message.author } // si USER existe pas, USER = Auteur
+          user = message.author }
 
-    let member = GetMemberByMention(args[1]) // créer USER
+    let member = GetMemberByMention(args[1]) || message.guild.member(args[1])
         if(!member) {
-          member = message.guild.member(message.author) } // si MEMBER existe pas, MEMBER = Auteur
+          member = message.guild.member(message.author) }
 
     let createdAt = new Date(user.createdAt)
 
