@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 
     let limited = client.apiLIST.limits.meteo
 
-    let VILLE_REQUEST = args.slice(1).join(' ')
+    let VILLE_REQUEST = args.slice(1).join(' ').toLowerCase().replace('é', 'e')
     if(!VILLE_REQUEST) return message.channel.send('merci de saisir un nom de ville')
 
     let RequestURL = `https://api.meteo-concept.com/api/location/cities?token=${API_KEY}&search=${VILLE_REQUEST}`

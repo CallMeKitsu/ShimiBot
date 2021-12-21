@@ -3,12 +3,12 @@ const Discord = require('discord.js')
 const fetch = require('node-fetch')
 module.exports.run = async (client, message, args) => {
 
-    const regex = /^[A-Za-z]+$/
+    const regex = /^[A-Za-zé]+$/
 
-    if(args[1].match(regex) < args[1].length) return client.emit('alphaCharsNeeded', message)
-
-    let SEARCH_REQUEST = args[1].toLowerCase().toString()
+    let SEARCH_REQUEST = args[1].toLowerCase().toString().toLowerCase().replace('é', 'e')
     let API_KEY = client.apiLIST.keys.dicolink
+
+    if(SEARCH_REQUEST.match(regex) < SEARCH_REQUEST.length) return client.emit('alphaCharsNeeded', message)
 
     let RequestURL = `https://api.dicolink.com/v1/mot/${SEARCH_REQUEST}/definitions?limite=200&api_key=${API_KEY}`
 

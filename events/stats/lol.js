@@ -8,9 +8,9 @@ let limited = client.apiLIST.limits.riot
 
 const API_KEY = client.apiLIST.keys.riot
     
-let NAME_REQUEST = args.slice(2).join(" ")
+let NAME_REQUEST = args.slice(2).join(" ").toLowerCase().replace('é', 'e')
 
-const regex = /^[A-Za-z]+$/
+const regex = /^[A-Za-zé]+$/
 
 if(!NAME_REQUEST) return message.channel.send('merci de saisir en argument un nom de joueur')
 

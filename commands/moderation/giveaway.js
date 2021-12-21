@@ -38,9 +38,9 @@ module.exports.run = async (client, message, args) => {
 
     if(MStime < 0) return message.channel.send("le temps ne peut être négatif")
 
-    const regex = /^[A-Za-z]+$/
+    const regex = /^[A-Za-zé]+$/
 
-    let item = NewArgs[1]
+    let item = NewArgs[1].toLowerCase().replace('é', 'e')
     let FormatedTime = `${days} jours, ${hours} heures et ${minutes} minutes !`
     let GiveawayConditions = NewArgs[2]
 
