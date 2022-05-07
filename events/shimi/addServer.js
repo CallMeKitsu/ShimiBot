@@ -16,7 +16,7 @@ module.exports = (client, message) => {
             CustomPrefix : "",
             ticketChan : "",
             JoinRole : "",
-            blankKey0 : "",
+            roleReact : [],
             blankKey1 : "",
             blankKey2 : "",
             blankKey3 : "",
