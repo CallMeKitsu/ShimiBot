@@ -18,4 +18,15 @@ module.exports = (client, message) => {
     
   }, 3000)
 
+  let JSONservers = JSON.parse(fs.readFileSync('./database/json/serverLIST.json'))
+
+  for(const server of JSONservers) {
+    if (server.roleReact && server.roleReact.length > 0) {
+      for (const messageRR of server.roleReact ) {
+        client.channels.cache.get(messageRR.channelId).messages.fetch(messageRR.messageId)
+      }
+    }
+  }
+
+
 }
