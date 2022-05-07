@@ -36,7 +36,13 @@ module.exports.run = async (client, message, args) => {
 
             game = play(game, actualPlayer, newCase, playerX, playerO)
             
-            if(game.winner !== undefined) return message.channel.send(`${render(game.game, 0)}\n${render(game.game, 1)}\n${render(game.game, 2)}\n**${game.winner.toString()}** remporte la partie !!`)
+            if(game.winner !== undefined) {
+                message.channel.send(`${render(game.game, 0)}\n${render(game.game, 1)}\n${render(game.game, 2)}\n**${game.winner.toString()}** remporte la partie !!`)
+                i = 10
+            } else if(typeof game === 'string') {
+                message.channel.send(game)
+                i = 10
+            }
             else message.channel.send(`${render(game, 0)}\n${render(game, 1)}\n${render(game, 2)}\nau tour de ${nextPlayer.toString()}`)
 
         })
@@ -64,7 +70,8 @@ module.exports.run = async (client, message, args) => {
         else if(thisCase.endsWith('3')) line = 2
         else return 'wrong case : line'
 
-        thisGame[line][column] = player
+        if(thisGame[line][column] === 0) thisGame[line][column] = player
+        else return 'wrong case : overlap'
 
         if(thisGame[0][0] === 1 && thisGame[0][1] === 1 && thisGame[0][2] === 1) return {winner: X, game: thisGame} // : X X X : - - - : - - - (line one)
         if(thisGame[1][0] === 1 && thisGame[1][1] === 1 && thisGame[1][2] === 1) return {winner: X, game: thisGame} // : - - - : X X X : - - - (line two)
