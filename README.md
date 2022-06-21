@@ -9,6 +9,7 @@ Actuellement en développement, en version **Beta 2.0.0** !
 
 # Invite :
 > [Stable (Jusqu'au 30 août)](https://bit.ly/DiscordShimiInvite)
+
 > [Canary (test de la V2)](https://discord.com/api/oauth2/authorize?client_id=886157756606869525&permissions=8&scope=bot%20applications.commands)
 
 # Documentation :
