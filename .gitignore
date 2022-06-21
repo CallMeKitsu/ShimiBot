@@ -1,10 +1,9 @@
 /node_modules/*
-.vs/
-.vscode/
-SoGitPush.bat
-start.bat
-package-lock.json
+.vs/*
+.vscode/*
 /commands/misc/*
+/data/*
+/launchers/*
+package.json
+package-lock.json
 .gitignore
-/database/*
-config.json
